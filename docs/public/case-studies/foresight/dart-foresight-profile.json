@@ -2,7 +2,9 @@
   "abi": "dart/3.14.0-294.0.dev",
   "_meta": {
     "generator_rev": 3,
-    "note": "Adapted from dae beta profile using official class_id.h diff: LocalVarDescriptor inserted at CID28. Other layouts still unverified."
+    "note": "Adapted from dae beta profile using official class_id.h diff: LocalVarDescriptor inserted at CID28. Other layouts still unverified.",
+    "derived_from": "https://github.com/ejfkdev/dae/blob/v0.1.13/profiles/sdk/dart-3.14.0-95.1.beta-w64-no-compressed.json",
+    "license": "MIT; copyright (c) 2026 ejfkdev; see dae-profile-LICENSE.txt"
   },
   "word_size": 8,
   "compressed_pointers": false,

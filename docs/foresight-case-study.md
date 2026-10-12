@@ -196,6 +196,8 @@ The walkthrough contains ten selectable stages, a glossary, retry simulations,
 three pipeline tabs, a bad/good shutdown stepper, and screenshot enlargement.
 Seven linked reports retain detailed addresses and historical limits. The
 experimental profile and 19-function symbol cross-check are downloadable.
+The profile derives from DAE; its original MIT license is preserved in
+`dae-profile-LICENSE.txt` inside the bundle.
 
 The original walkthrough passed 21 checks with DOM test doubles. These establish
 script/control behavior only; they do not verify browser rendering or layout.

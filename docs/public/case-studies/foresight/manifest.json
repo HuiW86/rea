@@ -3185,9 +3185,14 @@
       "sha256": "1634d09e5c99602b16934d01c165fb19134968d22af55f10635dc7d39148cabd"
     },
     {
+      "file": "dae-profile-LICENSE.txt",
+      "bytes": 1063,
+      "sha256": "5b911b1bf538503387f721adb89610940b1910f457a41e4aa810738a9cf633da"
+    },
+    {
       "file": "dart-foresight-profile.json",
-      "bytes": 24655,
-      "sha256": "f109deb93fa90006b4aca5ce37d65ed415266a4f685e30e8487649dca09e2af0"
+      "bytes": 24859,
+      "sha256": "25e18483cda93eebae048ba67bab00aedf35a4e5ba290e3dc39195275fc58d79"
     },
     {
       "file": "deep-report.html",
@@ -3206,8 +3211,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 1947033,
-      "sha256": "d7a7b0db04198be9ac99d6ed149c2fb85d08946a4774f3bb18624260bbe30303"
+      "bytes": 1947090,
+      "sha256": "bdbfc386960763e9488efb5f4c3a8c884ba8cbd3f2b10e3b304614c40c58e7de"
     },
     {
       "file": "loss-and-chinese-report.html",
@@ -3246,8 +3251,8 @@
     },
     {
       "file": "verification.json",
-      "bytes": 984,
-      "sha256": "070a064600b805bdde8c9d698025f0e5ab3cd042f2d8c40c25dcb140959e7e4a"
+      "bytes": 1349,
+      "sha256": "fd7ab8860b315f57a3ea8346d94b94437513c416194d8cba01253a8c6e297f19"
     }
   ],
   "embedded_screenshots": [
