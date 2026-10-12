@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第三轮：会议结束</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第三轮：会议结束</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+Foresight 第三轮：会议结束规则与下载流程
+
+本轮进展
+找到了保留名称的 Dart 业务符号，导出 19 组 LLVM 带符号汇编；另外 12 个限定入口经 Ghidra 成功生成局部伪代码。判断以汇编分支、常量和具名调用为主，伪代码只作辅助。这些是 REA 基线上的补充分析，不是 REA 全量分析成功。
+
+1. 静音自动停止的默认值已确认
+AppSettingsStore.recordingSilenceTimeoutMinutes（0x10072a9cc）读取设置字段；字段缺失或不大于 0 时回退到整数 15。此为代码默认值，不是读取当前用户设置。
+Swift inactivityTimeoutSeconds 初始化器（0x10037c580）返回 IEEE754 0x408c200000000000，即 900.0 秒。
+TranscriptManager._syncNativeInactivityTimeout（0x10096e680）将有效分钟数乘 60 后调用 AudioCapture.setInactivityTimeout；非正值传 0。
+注意：会话级覆盖允许非正值走禁用路径，持久设置读取器却回退 15；不能因此承诺界面中的 0 一定禁用。
+
+2. 静音到时的实际调用顺序已确认
+checkSilenceTimeout（0x1006f5548）先 await checkScheduledMeetingElapsed；然后读取内部时间戳和会话覆盖/设置的分钟数。
+分钟数乘 60000000 构成微秒 Duration；时间差大于等于阈值时，依次 await flushPendingInterims → stop → _notifyInactivityCutoff。
+因此是先提交待处理的转写，再停止，再通知。内部时间戳字段尚未追踪所有写入点，不能精确说它由每次声波、VAD 或转写哪一种事件刷新。
+
+3. 日程结束与静音停止是不同分支
+isMeetingExpired（0x1007298ac）：内部结束时间存在时，调用当前时间.isAfter(结束时间)。
+isMeetingOverrunExpired（0x1007291dc）：当前时间与同一结束时间的差值严格大于 900000000 微秒，即超过 15 分钟，才返回真；恰好 15 分钟不满足这个严格比较。
+checkScheduledMeetingElapsed（0x1007292ac）：包含晚于或等于结束时间的判断；超过 15 分钟的分支直接返回，跳过这次过旧的通知/询问。窗口内走本地通知与 promptMeetingEnded。
+promptMeetingEnded（0x100728df0）：展示前检查是否超过宽限期；满足过期且仍在录音的路径直接 stop。对话框返回后再次检查过期状态，存在即使选择未同意也停止的过期路径。正常未过期分支根据对话框布尔结果决定 stop。
+关键边界：跳过过旧通知本身不是立即停止；直接停止发生在另一个入口/分支。还没有证明一定存在“结束后第 15 分钟准时停”的独立定时器。
+onSystemWake (#2)（0x1006ed244）：有静音阈值检查和 isMeetingExpired → stop 路径，说明睡眠唤醒是单独的恢复与终止场景。
+部分内部布尔字段名尚未恢复，不能把上述入口级判断扩写成覆盖所有状态的完整状态机。
+
+4. 模型下载流程已确认到函数层
+ModelDownloader.download（0x10066cb48）：发布 DownloadStartedEvent → _buildDownloadUrl → _setupFileHandle → 建立 BasicLock 与 DownloadTracker → 建立 ChunkDownloader → Future.wait 等待任务 → 发布 DownloadCompletedEvent；异常路径发布 DownloadFailedEvent，并有文件关闭路径。
+ChunkDownloader.downloadChunk（0x10066dbfc）调用 RetryOptions.retry，具备真正的重试入口。
+ChunkDownloader._isRetryableError（0x10066e3e0）按 Dart 类型 ID 判断，仅部分类型可重试；不能从它推断所有网络错误都重试。类型 ID 与异常类名映射尚未解析。
+ChunkDownloader._writeBlock（0x10066ef80）有 BasicLock.synchronized 调用，表明部分文件写入受到锁保护。
+_buildDownloadUrl（0x10066d500）有字符串拼接、查询参数 Map、_Uri._makeHttpUri 调用；关键字符串保存在对象池，尚未解析，因此没有确认最终下载域名/完整 URL。
+未确认具体并发数、分块大小、最大重试次数、退避参数、校验算法或跨重启断点续传。仅看到 crypto/sha256 等包名不足以证明下载完整性校验。
+
+工具与失败边界
+已比较现成工具：Blutter 官方说明主要支持 Android arm64；dae 声称支持 Mach-O 和 macOS Flutter，故仅本地安装其官方 v0.1.13 二进制用于补充静态分析，SHA256 与 GitHub release digest 一致。
+dae 对目录未定位到标准 App.framework；指定主二进制后，低置信度猜测 Dart 3.13.0，但报 cluster 1 / cid 0 布局缺失，未成功解析快照。不能把猜测版本当作已确认版本，也没有伪造对象池解析结果。
+改用安装包现有符号和 LLVM/Ghidra 限定入口；未修改 Foresight，也未启动录音或读取会议数据库。
+
+后续最有价值的缺口
+恢复对象池中的下载 URL/配置常量、确认静音时间戳写入点、还原查询检测与检索引用的调用链。无需重复已超时的全量 Ghidra 分析。
+</pre>
+</html>

@@ -1,0 +1,3290 @@
+{
+  "date": "2026-10-11",
+  "target_build": "1.0.0.28.20261005",
+  "main_sha256": "fa98b856bfbe9b40cdebfb9f975f7867ec5c0a3ca75b81214a096a60b6db8326",
+  "scope": "Curated public case; no app binaries, models, full extracted prompts, private databases, raw build logs, or provider projects. SHA-256 entries identify retained evidence but do not make absent evidence publicly available.",
+  "raw_evidence_index": [
+    {
+      "file": "evidence/all-symbols.txt",
+      "bytes": 30272410,
+      "sha256": "a9dc6abaa8bbc70092c8b7fa2eb9bd88fe72374bbd6795308a40d2a194309975",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/apple-application-graph.json",
+      "bytes": 10916,
+      "sha256": "8d175070c81c3bc16a78e8c481dff1af1c6ec7e8f087dbcbf4f3ca34b0d2d63d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/apple-graph-input.json",
+      "bytes": 310560,
+      "sha256": "6782a2f1ea9d2c00d0eed2e33f35659a8039e616888c1f32cbc7d33bb54a42fb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/audio-plugin-demangled.json",
+      "bytes": 11124,
+      "sha256": "6bebc0220751001aababffacfe130fda4f0e093cc062b970079550ba820ec36c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/audio-timer-symbols.txt",
+      "bytes": 9063,
+      "sha256": "5573aa5c644453325d1061b74aaf55c4686e4a30e8fa16e79d297da128c639ce",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/business-symbols.txt",
+      "bytes": 5770,
+      "sha256": "9921c77afba77e6570f06bf7380c86c1ea4ec75b0e5dc59560b46826d7bbc913",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/dae-info.txt",
+      "bytes": 170,
+      "sha256": "a012cc2bc7d11c54d5e1791a65417309bf2ff227dbb07680e4751708fdbeeecc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/dae-release.json",
+      "bytes": 21538,
+      "sha256": "d035d1569edef109ba9f279ebe72723ecaa8022aa1da5afc3cbc009fdac1ebab",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/dart-module-and-url-candidates.txt",
+      "bytes": 38361,
+      "sha256": "e5b13c27a9c7dcecbdb066f752aa3ff023254f18e607fcdba14e68301e2568e1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/dart-module-candidates.json",
+      "bytes": 28166,
+      "sha256": "cc81709938c56aaea15512980eeb6a788c23286d037bc708730c09234a1bb0b9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/data-and-prompt-candidates.txt",
+      "bytes": 3650,
+      "sha256": "7d58bf94e3677535c54cde771beb76f28e2bd66de3a434cae931b81b7cda63a2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/download-stop-candidates.txt",
+      "bytes": 10127,
+      "sha256": "60338c69d00e2086cec1fa0ee36273891cd47bf053923638cd45a6f24ce7b2c1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/download-symbols-full.txt",
+      "bytes": 28827,
+      "sha256": "4e6603505940f9441a937918481b551d09942d8325fe24e2b46a2dbbcb63f2d9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/feature-string-candidates.txt",
+      "bytes": 31247,
+      "sha256": "00be64f84ace38c74054a9749ab00cc1630a121826989695e631cb48df86edb2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/ghidra-doctor-ready.json",
+      "bytes": 69167,
+      "sha256": "c1ae2573f85993dbb0be5717be9710e01f577745ec20abf04fe3e18d05c03389",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/ghidra-doctor.json",
+      "bytes": 69134,
+      "sha256": "9700e8e4c2e3e7b3c1a5c446564f22aba3fb44f40f93eee96e2a2375a644d020",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-artifact.json",
+      "bytes": 299826,
+      "sha256": "f88dbd7da6705d83809d030d3a41585310509a8ba51b400cfc8b6ac1d60214e0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-artifact.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-macho.json",
+      "bytes": 10506320,
+      "sha256": "a838edc105277e7eeeee133fbab29dee6f799f1b85ceaa4b2966655b653eddc8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-macho.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-plist.json",
+      "bytes": 3371,
+      "sha256": "5e6932cefaec0aaa20799f69f490f66ab6270ad16f87cd282002ce173e7aac3d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-plist.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-signature.json",
+      "bytes": 4267,
+      "sha256": "98e1a134c5240b1976bef243f2d4c5d7c7b2e922ef5f403a0abaf9886327d2c6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/inspect-signature.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/installed-model-file-inventory.json",
+      "bytes": 648,
+      "sha256": "7e82a22023d883564fff9df3e8bc1ed4f5d152d36987f25bbfec135a96449a99",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/mcp-tool-schemas.json",
+      "bytes": 5121504,
+      "sha256": "2b8e276c294321e38fabe84d27fa3782cdfa6bce7b7473659a0ff8b8882e9a19",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/model-and-meeting-strings.txt",
+      "bytes": 3102,
+      "sha256": "f911c6ccee1f88ce7199da718dea5c8c094eca757d16bbbcbdf6981c3552ca04",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/native-stop-symbols.txt",
+      "bytes": 3219,
+      "sha256": "2a8be542296e6cbcb45268eaccaf551cf1c66cbcd86d7d95ade01c616022d4ca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/pipeline-symbols.txt",
+      "bytes": 12732,
+      "sha256": "fcf277a0d386e9e0eec77164c18d94acb1ee2201e58ec6e3569fd0ebaa5f0ffb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/retrieval-prompt-candidates.txt",
+      "bytes": 10111,
+      "sha256": "4d3c5aad2c66e90d9612d1ad772d8f724abb2c5ce5847c403a24ae891a0ffd5b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/symbol-candidates.json",
+      "bytes": 1891348,
+      "sha256": "e0be9cb378fb6c69e23b1ad74c998fe86604eeb7101cd88800c85618fca85020",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/trace-dylib-resolution.json",
+      "bytes": 76033,
+      "sha256": "696a75d13b94b5c7f857e4a258fd25e447eb7472e395f5cebf5f2ce0cb694443",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "evidence/trace-dylib-resolution.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/audio-capture-handler.json",
+      "bytes": 472,
+      "sha256": "895926a4c9b634bac62dcc18172e501233e3d9a0932c1f44eb0c59a8b7e90142",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/close.json",
+      "bytes": 510,
+      "sha256": "cacc81c0abe83573c8a68905a5ea39e27a9dcf24684087af3dd94bf5de058d63",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/failure.txt",
+      "bytes": 45,
+      "sha256": "6ead40818b8d94f0bb3519a1a0c24a0671eaa0ff7f7981f8ecc202ecc6c5956d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/ghidra-import-log.txt",
+      "bytes": 67310,
+      "sha256": "4261256a216d234c21756211e8476864f8db2cee2c59967414f19314f4354394",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/open.json",
+      "bytes": 596,
+      "sha256": "1d6efac4619aed8148597b25bd09003ad9c5553afeb68e8978de9cdbd6660674",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "deep-evidence/snapshot.json",
+      "bytes": 1522,
+      "sha256": "d520bcb534ee790c33885d939a062eb9c1f291b84b44af7accc3534e028e4dbb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/audio-capture-handler.asm.txt",
+      "bytes": 65404,
+      "sha256": "89259bf023f5e536a4ab1dea27f50cbca178cb1ad7032ac806d1c50af5de1434",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/audio-capture-handler.status.txt",
+      "bytes": 452,
+      "sha256": "6287c61a25d810611da91d349d736709382dc7edce394369dbfbb46615012ecf",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/audio-command-dispatch.json",
+      "bytes": 3766,
+      "sha256": "36e374eda73a018bfb942591ee33dc3470ee1eb485b26ac88ec2dfb0350aaaf1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/audio-handler-literal-candidates.json",
+      "bytes": 7873,
+      "sha256": "309bff760004638f007abfa8ef0167215cbffb123d1af1e070184e3f9f0dd62e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/speech-engine-create.asm.txt",
+      "bytes": 23079,
+      "sha256": "b55295f87f549b45542b9a61bfc8e5b591fe2c115f64db7f3f1af450bb6870ea",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "bounded-evidence/speech-engine-create.status.txt",
+      "bytes": 474,
+      "sha256": "89d3029d527ea3caa5651ca30b8198395574ef63bcbd8e3d5b39f31bf46d4fe0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/AppSettingsStore.recordingSilenceTimeoutMinutes.llvm.asm.txt",
+      "bytes": 1789,
+      "sha256": "336e615d92d7c97c7bd744925aacb0d884b75233d7f7ec8f535627db1b0ada3a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ChunkDownloader._isRetryableError.llvm.asm.txt",
+      "bytes": 1816,
+      "sha256": "ca22cad3a9be99fb9f33715ac85b616952dfa0933dd7bcbe224c8f3518e0870f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ChunkDownloader._writeBlock.llvm.asm.txt",
+      "bytes": 11913,
+      "sha256": "ddec941d4ca1839636c5264a76c3feda9a8fe0527a396f387765f2904e7c491e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>.llvm.asm.txt",
+      "bytes": 2107,
+      "sha256": "f95115360109a0848b82a0e70c9cdaff75c40ccda713b2516074b694ea8b5915",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ChunkDownloader.downloadChunk.llvm.asm.txt",
+      "bytes": 6552,
+      "sha256": "3d9f4bcbc94df149d5ea61efc42e6f4f4fd86a63cd996b1c3a748f1a80a1638c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ModelDownloader._buildDownloadUrl.llvm.asm.txt",
+      "bytes": 2856,
+      "sha256": "ecec5b8434ee9feea655b863549c86cc1332d0ea62422b895dbdfce395df513a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/ModelDownloader.download.llvm.asm.txt",
+      "bytes": 23075,
+      "sha256": "c00acd0127504ba365fd5784e3ec19d626b2ca411decb63853c58b38ee04f859",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/RetryOptions.delay.llvm.asm.txt",
+      "bytes": 7832,
+      "sha256": "800b69eb5d7d14996ffbba6cdf4320acd3040af48bf9b86a7b87043548b33155",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/RetryOptions.retry.llvm.asm.txt",
+      "bytes": 9035,
+      "sha256": "8350fee5ad578cf4f05e49bdccd90105cb62df63d5bb0be9855f3078bc9be48d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager._startRecorderWarningTimer.llvm.asm.txt",
+      "bytes": 2631,
+      "sha256": "1aba384da973741eedd662d9644fb30313b642733fa458fc20badac19ee3b379",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager._startSilenceCheckTimer.llvm.asm.txt",
+      "bytes": 5447,
+      "sha256": "23f8437889b463dcdc61c29b99886ac0cb49ddcd1d009061dbc2d24bbc08f866",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager._syncNativeInactivityTimeout.llvm.asm.txt",
+      "bytes": 1934,
+      "sha256": "14bdcf554578018d705c2fcfa817d651b98db0130ed807a64cc142c29c908b83",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.checkScheduledMeetingElapsed.llvm.asm.txt",
+      "bytes": 10806,
+      "sha256": "0fd982e54cc4000365f0b3dac141b0fbd9c55a0383f0c7f661cd51eb97683276",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.checkSilenceTimeout.llvm.asm.txt",
+      "bytes": 8519,
+      "sha256": "5212c10a7a1f8b16c988397431c1fc145a04830f7c8a9ef5eef2afb27b880e40",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.isMeetingExpired.llvm.asm.txt",
+      "bytes": 1636,
+      "sha256": "ecf3331967423e5ee44f11e5964fa9d32960fca072bb754b374cf9f9ef681da9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.isMeetingOverrunExpired.llvm.asm.txt",
+      "bytes": 2000,
+      "sha256": "ed944d40c24c51ca06daaf4a55b68ea4087ee2a58aa6df2308957aa9f9cc709f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.onSystemWake_(#2).llvm.asm.txt",
+      "bytes": 10581,
+      "sha256": "d6da372c0924425235fda49cb933253ed114b63e00413ad4a36344301cd08405",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.promptMeetingEnded.llvm.asm.txt",
+      "bytes": 13260,
+      "sha256": "6d33df0f966fe47e5c8b838f1db4f0ee717328ab471cc1beb89f1c27e1f9ac77",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/TranscriptManager.silenceTimeoutMinutes.llvm.asm.txt",
+      "bytes": 1750,
+      "sha256": "a0c229a2b5ef3ee04d5414bd8fd1fee5aca57c111437acc0f7a9e1b9469f9cd1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/chunk-download.asm.txt",
+      "bytes": 3639,
+      "sha256": "4b2575d0b87ea4a5d9da699ede03fbb35cf9ecce20343d58ac39c74c3aff05ac",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/chunk-download.status.txt",
+      "bytes": 348,
+      "sha256": "bbc47cc0e10ab77dd0663443e2394ea18760d43337adb57203d2fdc34ecdd4b9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/chunk-retryable.asm.txt",
+      "bytes": 814,
+      "sha256": "08cc36e2c73ef0f7599a04f4d9ba17b1a0e2714b915f5cfaba2ded83a99324b6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/chunk-retryable.status.txt",
+      "bytes": 352,
+      "sha256": "da5fe29ce308ff842385f137dd5f198049d16099667734ba955d86f854ac54ce",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/download-url.asm.txt",
+      "bytes": 1543,
+      "sha256": "239e0f40256cd787aba6b28d4973ff6ff5b8f38a6f7611f2e5362114375caae8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/download-url.status.txt",
+      "bytes": 352,
+      "sha256": "ad85d3cfb077913d7ba46c3f0e687d8b8e4a6ccbe8d9ebbde708080114a19a92",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/meeting-expired.asm.txt",
+      "bytes": 4734,
+      "sha256": "4e7d62880398f9b66aa20ed0b50ed73d7b3440df66a04395b8ce4d6aaf758e1d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/meeting-expired.status.txt",
+      "bytes": 422,
+      "sha256": "38e5f8cb018b7d1ac55136ac0ad90029e1e53182c1fc25e8dd4a91b0b95c76ff",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/meeting-overrun-expired.asm.txt",
+      "bytes": 1160,
+      "sha256": "2612dc54e86600a9b8f39f2f054fb1a3ab1c2fb04fbbe75c9fb23a3ab4b8986b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/meeting-overrun-expired.status.txt",
+      "bytes": 360,
+      "sha256": "ca6feb8f204654755f4290706908a9763d2b9cb5a7595f07671a1acecd2074c9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/model-download.asm.txt",
+      "bytes": 10584,
+      "sha256": "a87ca9bca189712bb0abf29d136cec198b1c24cc78839041a78dba6a14a6f800",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/model-download.status.txt",
+      "bytes": 366,
+      "sha256": "ddbdeb1fb2bff986a56d0ed92c959919231aa4e0359bd60662b5a3ddc1ca3a03",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/native-timeout-default.asm.txt",
+      "bytes": 103,
+      "sha256": "4eae63ebf7f6b04c5656e3a431d091bb0eaae5076b9d0311662ce7bdda40f867",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/native-timeout-default.status.txt",
+      "bytes": 437,
+      "sha256": "5c18711f076c2badaa66f250b4600c1db7ae8a36285cff6f97fd2d8a47f5b156",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/recorder-warning-timer.asm.txt",
+      "bytes": 1279,
+      "sha256": "09279767c68f3c1525325ea4bfefa0f4f34c98506d926a3a81f824d6e7f37358",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/recorder-warning-timer.status.txt",
+      "bytes": 363,
+      "sha256": "8d10bf3327c4da987034f9eb251203238fc420f2a607d6a0d13ddec9f731c390",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/scheduled-elapsed.asm.txt",
+      "bytes": 5855,
+      "sha256": "895b09ad7fe916f3f1944fc56fd9c567e7b0c556622fc2286ace4d9f36130d94",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/scheduled-elapsed.status.txt",
+      "bytes": 411,
+      "sha256": "62a88dfc030f40615776a3f6780fb6749f5360553da20ca739746458732f2daf",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-check.asm.txt",
+      "bytes": 22124,
+      "sha256": "24bc7ffcd12616dd7fbcf47e83f90a707147bac6f142a25814bbe4d8fec577ae",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-check.status.txt",
+      "bytes": 402,
+      "sha256": "fa5ef6683a8683072efe981b410702e7400db5ebc958320659365e27116a1a44",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-timeout-getter.asm.txt",
+      "bytes": 737,
+      "sha256": "f21c0fdbb2614987e769f21aa898948ac2b0ffabe8ed8efec8b6b4af6d3233de",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-timeout-getter.status.txt",
+      "bytes": 358,
+      "sha256": "5d410b804d0d73ecd1220f30a8d046bd0245ff8f74b8c38547040a0821029d4e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-timer.asm.txt",
+      "bytes": 2722,
+      "sha256": "822a888d6e0d36319d4b660fe3fa6dd9e7ed1ba87bb63e6a10948f3df1be5d8a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "business-evidence/silence-timer.status.txt",
+      "bytes": 360,
+      "sha256": "5060cdade5fbb35d800d2cc13c909d66d85bfde7abae6ee0dd641c18f0c6ba11",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AppSettingsStore.recordingSilenceTimeoutMinutes.llvm.asm.txt.annotated.txt",
+      "bytes": 1788,
+      "sha256": "225d4f74f6fe45dd771807ca5c33ee5e9440893d72d0678aca37f06d20414380",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModel.asm.txt",
+      "bytes": 35818,
+      "sha256": "5e35430bff33ca35e9c48bcb76e21d28546c3edca464e3171fa519827d459136",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModel.asm.txt.annotated.txt",
+      "bytes": 38893,
+      "sha256": "dd8a81dc1e2a3a2b022d4b62c8d6abda9f1b57927307a5f39d5c0d25d7d7a877",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.<anonymous_closure>.asm.txt",
+      "bytes": 6470,
+      "sha256": "a749814d3be8de0b376a4fe93256f974042f999579572d235a725e773f936c44",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.<anonymous_closure>.asm.txt.annotated.txt",
+      "bytes": 6496,
+      "sha256": "3bd4be626c1d0f33b8f5fe3e9cb7f8e03f779defd95b42e95c183e4224726d63",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1564,
+      "sha256": "ee02d23a1226de3b5b57ff0ceb803e112bb8e8555b0e3aa7db6b492b37c981e8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.<anonymous_closure>_(#2).asm.txt.annotated.txt",
+      "bytes": 1563,
+      "sha256": "d5f3e3d1a9f2965eaf356a444f0e45f9adb112e68ca843b445e572991f09d783",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.asm.txt",
+      "bytes": 8023,
+      "sha256": "ecfd30ac4a3d3b9bcffc01740f49173e7699a2f93ac49203aae7b18b1796d0b7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._downloadModels.asm.txt.annotated.txt",
+      "bytes": 8137,
+      "sha256": "792899738bd3eb69c33b9c5075df524e7b04ec039869f5ff0b0b72076c5f7a0d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._getLocalModelPath.asm.txt",
+      "bytes": 23136,
+      "sha256": "6ed8589dff0b96b8cb75f250e8ec780c143c89dd9fc3756421daa9b3ec296323",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._getLocalModelPath.asm.txt.annotated.txt",
+      "bytes": 24412,
+      "sha256": "2ed82403b92d21d7594187e95fe80d1283a1e32ef6c3b38c17c7eb413dcf70d3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._saveModelToLocalFile.asm.txt",
+      "bytes": 8706,
+      "sha256": "d39d25005de990fb116dcc07b73469cebf200e46b07339ad77ea7632d2a9b4a9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager._saveModelToLocalFile.asm.txt.annotated.txt",
+      "bytes": 8986,
+      "sha256": "efc01a2316b43884f95b480ec395193dcd6992a82158c37e0eecd294adf7924a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager.isModelDownloaded.asm.txt",
+      "bytes": 1482,
+      "sha256": "2f3bd222b159f2ad8ccebb27969aa9f07fb12e21c9b88eff84810b62900049e2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/AssetManager.isModelDownloaded.asm.txt.annotated.txt",
+      "bytes": 1501,
+      "sha256": "41684de4bbd07f0c776f53ffacaae683dd0dee963689645a20f42d23aa122ad5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader._isRetryableError.llvm.asm.txt.annotated.txt",
+      "bytes": 1815,
+      "sha256": "1ea931e313fa1c47351655733c554f8b076ec71bac0e16b1c1dba0d11c7e5650",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader._writeBlock.llvm.asm.txt.annotated.txt",
+      "bytes": 12029,
+      "sha256": "c2c5210ae8e23f77c59e070eea7e5fce9daf5e13749fc849a3027bab8f106a5f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>.asm.txt",
+      "bytes": 2107,
+      "sha256": "f95115360109a0848b82a0e70c9cdaff75c40ccda713b2516074b694ea8b5915",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>.asm.txt.annotated.txt",
+      "bytes": 2237,
+      "sha256": "1292b116a43f0ece83623a87d01d05da1b949eec15bdbfd8865fc79c9f47d1e3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>.llvm.asm.txt.annotated.txt",
+      "bytes": 2237,
+      "sha256": "1292b116a43f0ece83623a87d01d05da1b949eec15bdbfd8865fc79c9f47d1e3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 26817,
+      "sha256": "a76c11ee7ee8b6f60dbe8853f3005195fc804ce51a0a7f163ede6da5ce9083d1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.<anonymous_closure>_(#2).asm.txt.annotated.txt",
+      "bytes": 27592,
+      "sha256": "5c86741e6fb18acdd69f96ab4e2762b4a63fee10f3e47e3176a4bebfcdd186af",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ChunkDownloader.downloadChunk.llvm.asm.txt.annotated.txt",
+      "bytes": 6968,
+      "sha256": "e98ad45946456c848eed2265d18757c2577b365e2a3e51e8c25340b45f173b1e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloadController._runDownload.<anonymous_closure>.asm.txt",
+      "bytes": 4784,
+      "sha256": "836f9bc14bc6e4dea93fc498265f00ca33131a5039c9d24283bea2b554a0b781",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloadController._runDownload.<anonymous_closure>.asm.txt.annotated.txt",
+      "bytes": 4816,
+      "sha256": "1829b66069440ff1720c764536b713f101e3de8a2709d7c899b299873b8fb8b7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloadController._runDownload.asm.txt",
+      "bytes": 16970,
+      "sha256": "c57bc076d7df63a454cda972a7d66a8fa00f4a076eb759274120f356c5caa706",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloadController._runDownload.asm.txt.annotated.txt",
+      "bytes": 18197,
+      "sha256": "10f2555eb78d7daeca896b213efd06db76122b49fd4e48002c8693afe385bf07",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloader._buildDownloadUrl.llvm.asm.txt.annotated.txt",
+      "bytes": 3135,
+      "sha256": "afaa8200653666c65c268fa9d452045c96cc914277b1a4adf8c1a1ac708fbd5f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloader._setupFileHandle.asm.txt",
+      "bytes": 3859,
+      "sha256": "01d7eb5b9ecd64aeb4d71fa7832e39b360a9dda2944ff903132f64e9f37eb8d6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloader._setupFileHandle.asm.txt.annotated.txt",
+      "bytes": 4022,
+      "sha256": "26d1285e6b67cd5cc40072ce2360fd4a4358db7a162dc0bafb5d9f2cbe0c7d1b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/ModelDownloader.download.llvm.asm.txt.annotated.txt",
+      "bytes": 23720,
+      "sha256": "1f462aa4956e4ad07c60c055baeacf9bd0353e701773ce1714d4f9393fe425c5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/OdmlService.downloadMediaInParallel.asm.txt",
+      "bytes": 8648,
+      "sha256": "f5f3bcb41e1a1704330cfbaafbf60d46d1b4095c422ef070f202a3d5e5015bbc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/OdmlService.downloadMediaInParallel.asm.txt.annotated.txt",
+      "bytes": 9487,
+      "sha256": "472e2edb08c1863ccc70c67becac95ef29846d60cf4d0b73bd6ff6a2baef5d79",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/RetryOptions.delay.llvm.asm.txt.annotated.txt",
+      "bytes": 7972,
+      "sha256": "f6d734b0ee682a99c88cd4847ffccfe2ce68c95e5fba52f8af80640002ba8fca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/RetryOptions.retry.llvm.asm.txt.annotated.txt",
+      "bytes": 9304,
+      "sha256": "b926ce714bb02b1359f3b1fb7a57a086716e8cb187eba681377cf2df0eb0d589",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager._startRecorderWarningTimer.llvm.asm.txt.annotated.txt",
+      "bytes": 2812,
+      "sha256": "1af10700dd97e7801a1dabd8645840d59101a6ed9fe39b05dca045762d8d682c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager._startSilenceCheckTimer.llvm.asm.txt.annotated.txt",
+      "bytes": 5721,
+      "sha256": "3220212fabdafce4ed7f0e62e79d3e358558d235d0f04d813ec0a959486a200d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager._syncNativeInactivityTimeout.llvm.asm.txt.annotated.txt",
+      "bytes": 1933,
+      "sha256": "70c642f2e81bec3acc52cb84e2b45e05408fed2b483be7fe395919f0eadfe6b6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.checkScheduledMeetingElapsed.llvm.asm.txt.annotated.txt",
+      "bytes": 11564,
+      "sha256": "e17ec8521657b6d0454a287c58aca3411fb65d73530f89736939ee2afca785b7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.checkSilenceTimeout.llvm.asm.txt.annotated.txt",
+      "bytes": 8796,
+      "sha256": "f93c8c0aed666d456992cf8b11155ede46d4312112cfd39bea33061adf6d3c19",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.isMeetingExpired.llvm.asm.txt.annotated.txt",
+      "bytes": 1635,
+      "sha256": "422be89718bcdc0651b00ef36b86b1479d788f3862ddc8f28fc99ac6fd8c3b40",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.isMeetingOverrunExpired.llvm.asm.txt.annotated.txt",
+      "bytes": 1999,
+      "sha256": "2fb1d3253e22791ed9940e08b8de3f30e409884b14f5bf69889419f6088ef935",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.onSystemWake_(#2).llvm.asm.txt.annotated.txt",
+      "bytes": 11215,
+      "sha256": "d9b465867b8f2a4585ffd6a7928935822fb51149d672a5d88a1d3fa405e39170",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.promptMeetingEnded.llvm.asm.txt.annotated.txt",
+      "bytes": 14187,
+      "sha256": "d5b59fcb434602b4a13c334f7f37e0880b0cc3642d235bbacd65b28e239be9d8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/TranscriptManager.silenceTimeoutMinutes.llvm.asm.txt.annotated.txt",
+      "bytes": 1770,
+      "sha256": "439aada942306d8b3e50cf2796fb48c37f12c53185ad478b70ef85263c42f5d9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/_Uri._makeHttpUri.asm.txt",
+      "bytes": 12616,
+      "sha256": "91af5c8d3e49a7f01c581f73b0036b4c898e61dc773799689ed89bfeb6cf1652",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/_Uri._makeHttpUri.asm.txt.annotated.txt",
+      "bytes": 12999,
+      "sha256": "05c0078347fd478c82460105a5c6b739254ea5e3b4d039ae7abeb234cc21ae03",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/classes.txt",
+      "bytes": 300471,
+      "sha256": "cc6387c4fe7e1c7a7ec3723ab97252b171ed418465ad0a7af4190c23d923a89b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dae-314-info.txt",
+      "bytes": 107,
+      "sha256": "591c33eaea03c2ac00ea7c53924e60854e674860223c688a6a59336d5d8f0e30",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dae-adapted-debug.txt",
+      "bytes": 140229,
+      "sha256": "85bf905f84f3728112ef0ccc17daf7ab9ff1bc699a27467e9f3e4568fbf3bbcf",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dae-adapted-info.txt",
+      "bytes": 481,
+      "sha256": "9a15adc9c5f146e20898529c2d42177846bff9c39335fe3a64bed133d9c9024d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dae-debug.txt",
+      "bytes": 614,
+      "sha256": "e92945e1ba0ecb8a67d5ee27b0ee88573be97124f6b034d0e9eb25acb1717932",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dart-foresight-profile.json",
+      "bytes": 25950,
+      "sha256": "1e0eb91f87905ae7ae2690555249a18436c8a0160e5a07ba5cab6ad27048597e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/dart-tree.json",
+      "bytes": 18415217,
+      "sha256": "7736d34b4a403070b36fc9fa70724789ad5a3275f6cbb12976f825d811a25556",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/download-direct-calls.json",
+      "bytes": 28724,
+      "sha256": "aa5f8e9d9b2c4dc6d60098d728b715ed24a4375abc8c74606744416e6e40a949",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/new_ModelDownloader.asm.txt",
+      "bytes": 329,
+      "sha256": "ceebe3437b9cd1266a52fc7f1c9febd786f9dea89d3a9f133a8d5f28a2545684",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/new_ModelDownloader.asm.txt.annotated.txt",
+      "bytes": 328,
+      "sha256": "5b7eaf8f3fc537a8b64fba323d4eebf06068f45b33052beeff9c4d7c60fae1f7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/new_RetryOptions.asm.txt",
+      "bytes": 326,
+      "sha256": "5340ab87522b1bbcfc18d552a2c9a548786c22f23da2f104d3f9982f90dfdeed",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/new_RetryOptions.asm.txt.annotated.txt",
+      "bytes": 325,
+      "sha256": "924e4daea316fc0ac322cdf17c1770a697d4f4e42b343a0c7fed5351170ad8f3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/object-pool.txt",
+      "bytes": 2540502,
+      "sha256": "9d57bbbc7921d77a384a41e73c805329af01f58c6208dec72fbbd4f4b2372003",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/range-probe-bare-id.json",
+      "bytes": 342,
+      "sha256": "9a2ab88202e64b65082f4b7c269a265582966af32abfe7a63a36cf76a34a27f5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/range-probe.json",
+      "bytes": 1584,
+      "sha256": "855b9ff6bf0494a491ab6dd088ea5441fedb93ee9396ebe9b4fa905b7fc55d9d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/redaction-manifest.json",
+      "bytes": 207,
+      "sha256": "dea757f68c44c5fae27c07166f95e310b38dcfd3ce292f7db46351df496a2908",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/retry-objects.txt",
+      "bytes": 195,
+      "sha256": "9be53898fddf19643491185b9b0d3883a620093d28af4b453a63f40ce25676ca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/symbol-crosscheck.json",
+      "bytes": 3647,
+      "sha256": "bd3d86363e53e0e29602a342100cc5cb6ae6b58c6aafeac82cb1ac3bf46e3e73",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "download-evidence/url-integrity-strings.txt",
+      "bytes": 8498,
+      "sha256": "d8154597e2ea929804d8a28ed8376dfbfb3e0003cb42dc24a901c20c18a09ef1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector._getBuffer.asm.txt",
+      "bytes": 3634,
+      "sha256": "2207853ed3e3173fa84139a7407fedfef5f41e8e4b427804faabd6c6d1ff50fd",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector._handleTranscript.asm.txt",
+      "bytes": 962,
+      "sha256": "e38c9cfc275bc0131ef844349b30a37e0a9caebd053f4c35096c2add6678bb28",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector._handleTranscript_(#2).asm.txt",
+      "bytes": 1065,
+      "sha256": "c97784f77907d76028eaa25c662ffc22fa7ff5106d5f799baab968b1c302f2a8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.dispose.asm.txt",
+      "bytes": 1214,
+      "sha256": "596c0c2c5e92c4a2988877214b3e944abd66bf952b017a29a0f5243c5370da25",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.extractPcmChunk.asm.txt",
+      "bytes": 1221,
+      "sha256": "1541ac36f2877e7cd2b39199b6c0d3035cc1ca36f2bfc53386c9dc8f0612abd8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.getCurrentAudioPositionMicros.asm.txt",
+      "bytes": 974,
+      "sha256": "a7d6a5e4fe0de620cc4684c50018a6cd4f5733c93ada84b92fbffc485e17f90f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.inputVolumeStream.asm.txt",
+      "bytes": 893,
+      "sha256": "603d3cbeaa1d1fa078ac4808785c117f12eeb3ab03d094584a90a6a86ad1fc38",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.outputVolumeStream.asm.txt",
+      "bytes": 897,
+      "sha256": "1950597b80d8fb0f516d26c2fd57804c88a4e51f5edb93dd55dcf8869cd82bc4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>.asm.txt",
+      "bytes": 2371,
+      "sha256": "91dcd6fc8428eb52398cd9fcbb10bb35ea6f443cf9a056c1c12ff0bbc6201637",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3723,
+      "sha256": "eb12c6d085f08615d8fc9cff3ecc1b685a3509fff9c3f3e686181a1d869827e9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 3471,
+      "sha256": "a6a3d18a9ca95c629392f058bb3ba047a08010f595c58e52ad9ab2e8d1952a5e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 2387,
+      "sha256": "4547227bd172a84001a5fe877437d2af98f42a01c7ba1ee1ea28851adfad2b49",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 3720,
+      "sha256": "91b1fc4695f204ccfd5c862730b0432117cbc1f4a98bd0d2c8d325d1f41cba31",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.startDetecting.asm.txt",
+      "bytes": 13125,
+      "sha256": "d253f5a4c8edf2912a1d3214646ac72dc7855703e5010f5d43a3b2be92c761b0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/AudioTranscriptionDetector.stopDetecting.asm.txt",
+      "bytes": 7261,
+      "sha256": "b41af4e5fe79cde69a191ac77350cc7bac31e96573ed42bda6e134330374a184",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._cleanModelOutput.asm.txt",
+      "bytes": 4697,
+      "sha256": "b7918e947cfaa4849bfcb884e12612ef5aa9358de4c6aa0f676fe28a5475c3a4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._clusterScribblesIntoBatches.asm.txt",
+      "bytes": 36540,
+      "sha256": "b0f2ed94638df0b637d0d9a623faf79e00241c373b823424a7879917443ba8e8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._clusterScribblesIntoBatches.selected.txt",
+      "bytes": 834,
+      "sha256": "85f741a1c7aac352433fd162658a5f132f955f2d62ed49e54e62b6b6fd5062ca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._embeddedTranscriptChunks.asm.txt",
+      "bytes": 5320,
+      "sha256": "5a6c6ca783b8960b76e4c2485213f8e2b0913525f9f274371121ea5b59668d1e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._extractText.asm.txt",
+      "bytes": 11196,
+      "sha256": "98968cc9e89565047d5dc69711087c32cc39fc8188821516bde24acd90c5db09",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._markerOnlyPattern.asm.txt",
+      "bytes": 1333,
+      "sha256": "fdc113401e7b000839853c97c5d89dd29e12680280da346d66817d4bfac22401",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer._toFallbackBullet.asm.txt",
+      "bytes": 2291,
+      "sha256": "f98247da9a0196c4263371c2b4e3dcd0a970442b0c69924296771f1b9bc91f6c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.buildPrompt.asm.txt",
+      "bytes": 12717,
+      "sha256": "5cf4ae5a5c89799cb2fafe200ea63e13ba8b63b5b9530daadea065612753271a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.cleanTags.asm.txt",
+      "bytes": 3396,
+      "sha256": "eab858ad902dea3abdb10fceafd35a5c42e1302c3b587e8d3e1e13021693b5b5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>.<anonymous_closure>.asm.txt",
+      "bytes": 2027,
+      "sha256": "a56879525158b010983fd400c4f40c3df54adeff88faee2e77416367306384bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>.asm.txt",
+      "bytes": 1199,
+      "sha256": "2cac2f7de4af5ffbe207de969684e9ff1a3620d14667360dc3eaae728fd55ed9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1582,
+      "sha256": "c1adc1e6af406382d0f1c80cbb9017fbb3ab7575e28cfb7f3d19cf4ad854f59c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 1844,
+      "sha256": "5d38f0f981968114ee36ae9cd3fb19d848158b6e0e3a2122debbc25db2396770",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 1428,
+      "sha256": "79ed9e3d0b52321906a59f7203e0e22210403ca5dd2ccb63a66a931298a65fb8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 2775,
+      "sha256": "bf196734d51f0ffa3b00570a443215fe610450401ebc39850d07d1521ffaea78",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#6).asm.txt",
+      "bytes": 881,
+      "sha256": "6036822d6250102f053ce4be4374e53c94d9ffb108d394235baf43f04d20586b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#7).asm.txt",
+      "bytes": 3323,
+      "sha256": "ad7488efa70f7ef2873e10811b24120bfc67686d496fcb6285415a6703b2e2c3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#8).asm.txt",
+      "bytes": 1094,
+      "sha256": "1ac8cc64b006540e33e70188e673ff4c4f4941275735d5227bb0b4efb2d66dfb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.asm.txt",
+      "bytes": 319857,
+      "sha256": "c94058bfa91ec3e2f9bbfa86d12ae7500d9d806d5e4b7323c55a52818fede44a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.enhanceStream.selected.txt",
+      "bytes": 16460,
+      "sha256": "299c374419bb1d55b360bf03862737a428a1125cb51237762c6f1c6c46e983d3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.formatNotesWithSpacing.asm.txt",
+      "bytes": 6063,
+      "sha256": "63ab69314f46105160b73ae82ce1d4841f0ce8660e967e872af862c686f73d97",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.hasEnhanceableScribbles.asm.txt",
+      "bytes": 6506,
+      "sha256": "67a698c1f48a1e82b6677c423b55aaca67592deb179137839c555f097fec8312",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.hasMeaningfulContent.asm.txt",
+      "bytes": 2011,
+      "sha256": "f79f04909dd720bd78df0e6fb694415569a74a539b3656118929abbcdb204df7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.isAlreadyEnhancedLine.asm.txt",
+      "bytes": 3790,
+      "sha256": "527e3612ee6019a9e2b2eac9d4ebfb1ed6d51650d4374c0f1af4ed0b9081a934",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.mapLineIndices.asm.txt",
+      "bytes": 7345,
+      "sha256": "de6da32980c9520afd9c7fa047ea383b8962aa7fb3b3c4d82b22bab49b561157",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/NotesEnhancer.parseBatchOutput.asm.txt",
+      "bytes": 18962,
+      "sha256": "57e87258c7e7619ed3df047925f1ddec274e6503b3e9b570fe87067b5aeb53ec",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._flushPendingAudio.<anonymous_closure>.asm.txt",
+      "bytes": 4046,
+      "sha256": "2204f6ebbdc1c81661cab084f0cf4c190103ce3c34657fa0e0879c93dbcce1f9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._flushPendingAudio.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1097,
+      "sha256": "34031998ad98b5895d111aad1a397a767356c01950a895e50d240964a1817e03",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._flushPendingAudio.asm.txt",
+      "bytes": 12238,
+      "sha256": "e611ee03abaf70dcd0778ff309d63278830303561c0121edb573bbb0c821610e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._flushPendingAudio.selected.txt",
+      "bytes": 557,
+      "sha256": "4e41a82dd4f94ebafede9020e579930acc46e1b36423f9971be98dc6d7c2e46c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._restartEngine.asm.txt",
+      "bytes": 6159,
+      "sha256": "33c14fe2c3d624d621e105e4f1cfdce8a5a4b47d44c36903a80849781371e4c4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService._sendAudioToIsolate.asm.txt",
+      "bytes": 10003,
+      "sha256": "d4f4517085668756eef806b0434f16c405bd1d4cea6e1c1629068d9d0d078a98",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.dispose.asm.txt",
+      "bytes": 1322,
+      "sha256": "3c79a12575f56f60c7881e3e5a7a506f895f101715bc7314e6bdd95325541efc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.endTranscription.<anonymous_closure>.asm.txt",
+      "bytes": 1907,
+      "sha256": "055969e3121ca5c70a009f5b0542e856b0a0b3f35d5cb2577a5385f46fee0cca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.endTranscription.asm.txt",
+      "bytes": 21396,
+      "sha256": "dd0c622225513ab56866bac33e594610a8f53f21c6e03ffd11222b479d45d11e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.initialize.asm.txt",
+      "bytes": 7639,
+      "sha256": "6156cdb262206611700aed84d2ccc55a639253fbf618b2e5e65be6e2ce511acc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.sendAudio.asm.txt",
+      "bytes": 5217,
+      "sha256": "b23eb4ab6420e5e7ba2dbae80900e0aa5f60960251d2ac5b880b5465d487f32b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.sendAudio.selected.txt",
+      "bytes": 190,
+      "sha256": "40346ee80878e2da74d834f5615f51c4e6419799a583a109bcf9db16009c6d89",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.startTranscription.<anonymous_closure>.asm.txt",
+      "bytes": 5515,
+      "sha256": "a914e2ba73fe76a950bd865ee5c58e477f05cb40c4c6325731d23578fa75260b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.startTranscription.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 419,
+      "sha256": "b730dd94f93529367b408c923f713b0415cffe966ecfc5b2a1bed891f2999943",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/OnDeviceSpeechTranscriptionService.startTranscription.asm.txt",
+      "bytes": 5161,
+      "sha256": "0101bf49c93b0fdc403789fcf71d0ff8ed7064330f54dffed1872406faf0ad58",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDetectorOnDevice.detectQuery.<anonymous_closure>.asm.txt",
+      "bytes": 1438,
+      "sha256": "1ec848214a5b9343db1203aa3b86dadf663374772a18aef9e04bdba403186247",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDetectorOnDevice.detectQuery.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3563,
+      "sha256": "526bee245ab900fcc2f4866a2b0513418fa6ec64e68c45c9635e3fd7ec36cf10",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDetectorOnDevice.detectQuery.asm.txt",
+      "bytes": 29674,
+      "sha256": "376eff0774eaa34d729cc720fcc5822cd5b8a5cdeeda5bac2feb48cb029e7c30",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDetectorOnDevice.dispose.asm.txt",
+      "bytes": 1658,
+      "sha256": "2e9de22d7bbcb059bf8e25a3f50c54730f51b2824683b683d6a7b390334aa145",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDetectorOnDevice.initialize.asm.txt",
+      "bytes": 4853,
+      "sha256": "541a71e2c253a2c4cf8b4613c0f7e86247e5dfb4180d72931a97a9f3896ce979",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDispatcher._dispatchQueriesInternal.asm.txt",
+      "bytes": 19163,
+      "sha256": "b32a2d9c93efb887a1f17da0e5729038f37d9264ac9ad51eb92021efe83e7f10",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDispatcher.dispatchQueries.asm.txt",
+      "bytes": 3912,
+      "sha256": "b37d5ff090aaf9fdf34e782fa25e70792ea9c50ac0433f2b781d654280b9a0c8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/QueryDispatcher.reset.asm.txt",
+      "bytes": 1249,
+      "sha256": "f040c8fce9a6060a1ca8fbaa2426a7fc816b9e381fae72b795a806a732561930",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator._calculateHash.asm.txt",
+      "bytes": 1129,
+      "sha256": "a0675e42ba1c3fe33c7e24f03d47a6324e1aa72df0cee2ca18e8e398cafb364e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator._normalizationPatterns.asm.txt",
+      "bytes": 3604,
+      "sha256": "c6c45c2375b29124a0c48f6f5d5d5773287bcd054b23ec822fd9d8b09cb66648",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator._normalizeText.asm.txt",
+      "bytes": 3612,
+      "sha256": "618b2f40cd6d4cd6d0f87c6bd90150025f5abe742643f1a33c6b49c8315fd5d5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator.dispose.asm.txt",
+      "bytes": 1032,
+      "sha256": "93a3dd32ebd11a4912b0741c972f2353a22c362668eb016c8269c0bc5cf1609e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator.processText.asm.txt",
+      "bytes": 3461,
+      "sha256": "90dea5d8b3e0b1d3459afd2635e47b9fdab019efefd9b3d08a856a2f53f58c0c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextDeduplicator.reset.asm.txt",
+      "bytes": 841,
+      "sha256": "804596bd566fee63eec2c2c39e9790ce5ad856271be4757c767fbd02e2209af9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator._initializeWorker.<anonymous_closure>.asm.txt",
+      "bytes": 5050,
+      "sha256": "62dca3178d7947e9ff651aa6bc78ac12993a7dbc36a828710b7c220457a93c0c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator._initializeWorker.asm.txt",
+      "bytes": 6095,
+      "sha256": "cd44eca6d5c5ebadeb0d4fdf6f1d3cc374b222d8c441c9d5b2c5f618b6e1620e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator.create.<anonymous_closure>.asm.txt",
+      "bytes": 1679,
+      "sha256": "8334ee7def1b9fcbea833716793e9346e23d709b6012dce9d7a8f1644b0b9a31",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator.create.asm.txt",
+      "bytes": 15997,
+      "sha256": "6c2cecd6b03eb1cffc61b8e8864d91a1dd84a849c800258737858fb1e78d8305",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator.dispose.asm.txt",
+      "bytes": 3111,
+      "sha256": "9f474388a1e9dc5a41528b51d3973587bb1bff4d62b20f84843301a2037707d7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TextGenerator.generate.asm.txt",
+      "bytes": 6660,
+      "sha256": "fc2db8bdea91fb472f9223ab585c5601b1c5b7a67d49f34c09123dfa8e81fed9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.addTranscriptionResult.asm.txt",
+      "bytes": 18912,
+      "sha256": "c001b262944f2076f28f2754a7c4139523ca0134cf95cb39bf6b1f6009068dcd",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.getUiTranscript.<anonymous_closure>.asm.txt",
+      "bytes": 2153,
+      "sha256": "9ea36718c30dd90102f9e7c2e9309a40cc549498defb00162e99d55be25d1705",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.getUiTranscript.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3900,
+      "sha256": "809cb17a21147ceb41a757066a4b25ec4c6b5d1eb1d72449c9aa405c3acc0579",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.getUiTranscript.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 910,
+      "sha256": "c1a25b3f6a70fa2a161e12eb98ee1b3b700fd919929b5f6f79a9a610f8d62fb3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.getUiTranscript.asm.txt",
+      "bytes": 18714,
+      "sha256": "980caeccfd44b961155566b1d269933ed9cdc93e908896513c25f7fedf5caf16",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.pruneHistory.<anonymous_closure>.asm.txt",
+      "bytes": 1383,
+      "sha256": "ae99145df7c606dc61f4ca01ecc8da77e836de64135f4ba3b5be5867d40f488d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.pruneHistory.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1452,
+      "sha256": "4ae0f0c249ff0311e647325fb6922b67e4bf029af3c8a2c5f9d4b79b86dca0b1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptBuffer.pruneHistory.asm.txt",
+      "bytes": 8251,
+      "sha256": "34f41bf6f6da9db6eb6583a787a53adf7e97ce92f2800507f484297f352c2035",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._chunkAndEmbed.asm.txt",
+      "bytes": 20717,
+      "sha256": "3e96684c0e3e508c8327736afc40e18e896e30d3fd072652364e828437b0759b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._drain.asm.txt",
+      "bytes": 4968,
+      "sha256": "fc4beb6b0b9cf5151c536b701a96c6f4ea77d6141e739c7f5e7e32be323495bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._entryFor.asm.txt",
+      "bytes": 3051,
+      "sha256": "aac0608db271953e7cb8faaf0cc3338aebc57367ed465bc6a1f11a95cb435a25",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._loadFromDataStore.asm.txt",
+      "bytes": 876,
+      "sha256": "451c8375bf403d7fa7ae1004c485d12b4493a75d50df3e0dc1df99efe0b067aa",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._loadFromDataStore_(#2).asm.txt",
+      "bytes": 1519,
+      "sha256": "aa206c8db7b8f3ba31523da798350c9cb73bb3f979f73a65e27201cf6dd3bf3d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager._schedule.asm.txt",
+      "bytes": 2592,
+      "sha256": "4ea291d4592ed7b3e63f77864357a9b5eb613050f9c2ec137b5b2fa43d59e79e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.chunkTranscript.asm.txt",
+      "bytes": 13113,
+      "sha256": "f96d1d5c3b5355e7cea3bc6ae906f1b2537473ad47b5e8b55a10fe24df78a4b3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.embedLiveTranscript.asm.txt",
+      "bytes": 3093,
+      "sha256": "198b78a230f9c8a25fbada3a08a02ca1679983549c81641f58060321722add52",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.embedTextWithoutCaching.asm.txt",
+      "bytes": 974,
+      "sha256": "70e6f38e7d98cbdc066f9f436499a47765d744ac5d2963270a1d6126dfb62092",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.extractTranscriptText.asm.txt",
+      "bytes": 3307,
+      "sha256": "ac923797df3f137d00459629ca6a78b77e572b20c088a80faad2f76c80dae39a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.findSimilarChunks.asm.txt",
+      "bytes": 10187,
+      "sha256": "d2bac9d6ddcd1f166877a9cdab6cfa5b44a46cf85123829ac576c31f9b24b212",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.formatSegments.<anonymous_closure>.asm.txt",
+      "bytes": 1948,
+      "sha256": "027221ac22fd2d972798572949700ff61a78d26f33e276661bf197a423d7ac51",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.formatSegments.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1316,
+      "sha256": "2a8f03c5a7744972d0433e111ae9789ea19fac3a912d066c636bbabcd81d031f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.formatSegments.asm.txt",
+      "bytes": 2221,
+      "sha256": "185aaaf6d78d822ea9792f489e1e45d625ba1a9f8929957ecff07f01fa6d9ed9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.getCachedChunks.asm.txt",
+      "bytes": 1806,
+      "sha256": "bf6101d657bcdacb3f33803a16c2e7331e676ed39430674cdb302f925344405a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.getEmbeddedChunks.asm.txt",
+      "bytes": 8974,
+      "sha256": "e075bc426ee4221ea90efe2a389c78dda619b27408b74c535ff338cf2b65875d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.hasCachedChunks.asm.txt",
+      "bytes": 2292,
+      "sha256": "fe725a0ebe252cbdf02cdfd3c6f597375bbaa4fb2e6679e6bbfc543d21ac1709",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.hasCompleteEmbeddings.<anonymous_closure>.asm.txt",
+      "bytes": 1175,
+      "sha256": "e5ff2fa0db04950154a71bccf943be06955a638b5619df5c6d9a1b17e21eaa85",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.hasCompleteEmbeddings.asm.txt",
+      "bytes": 3531,
+      "sha256": "c6d100e9481ef4292835f2d3637cdd8f6f35e0f01b1af5bc400caf965bd99302",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.instance.asm.txt",
+      "bytes": 2004,
+      "sha256": "fdb82d87d5d909f8058d41efb25e44cb603a561c973573509837700d75388236",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.loadSavedTranscriptFrom.<anonymous_closure>.asm.txt",
+      "bytes": 994,
+      "sha256": "c47d46fbb0310a19bdce0cf987863e940e7b29e81498e3898e1d708fd2e5e71b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptEmbeddingManager.loadSavedTranscriptFrom.asm.txt",
+      "bytes": 3321,
+      "sha256": "f59aa8c7356aa96903dc99b9ada068b0390f25ad3fb3b17f764a0c8c23c650b8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._cleanup.asm.txt",
+      "bytes": 5872,
+      "sha256": "5be5beec8b151c2eac76a84444063281ab23e5d8b56d00875a26557bda599446",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._createTranscriptionService.<anonymous_closure>.asm.txt",
+      "bytes": 2461,
+      "sha256": "4fec720fea5ba7be6bade9c94da224676098e8b68ef99c989276a63a6fda5219",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._createTranscriptionService.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3103,
+      "sha256": "89598f505411b6cda3652461e73d20393de90c5cafb4a6b1bc57cf2d905f7028",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._createTranscriptionService.asm.txt",
+      "bytes": 5315,
+      "sha256": "e48c069158ccbcf8f7a64f259e085f453d8f9149dc91f9e3d215401c59324d2c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._getTranscriptAndAudioForQueryDetection.<anonymous_closure>.asm.txt",
+      "bytes": 1074,
+      "sha256": "051483c8e31b6d39e32a313e731052a4108dd7de23698b3f433857431e15d332",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._getTranscriptAndAudioForQueryDetection.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1351,
+      "sha256": "9094784b0382067ec0fd520c5aa85391d7e58620ffdacd55852b36f7399ef342",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._getTranscriptAndAudioForQueryDetection.asm.txt",
+      "bytes": 14810,
+      "sha256": "b5c71bf9ac73a4e638ef04b3d438d9d1d051e2044fd2488a3f015304a9899881",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._getTranscriptAndAudioForQueryDetection.selected.txt",
+      "bytes": 755,
+      "sha256": "540f865db3225ea7e740dd5bbb233db301d00b1a8715c69532667e72a5401739",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initQueryDetector.<anonymous_closure>.asm.txt",
+      "bytes": 6886,
+      "sha256": "a14ddd7940acd70f55a4d849dfa6628c9502118a9569347c7fe77cc75f014a3b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initQueryDetector.asm.txt",
+      "bytes": 3062,
+      "sha256": "3648ce816151d8870e962851a1b8d214e5e4fa62b1df06547b90858435261848",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>.asm.txt",
+      "bytes": 1170,
+      "sha256": "31a5dd9cd28c4fe79fee60fe37bb5ac3cb3af951ba1a791ece04e7cdac015446",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 2540,
+      "sha256": "b0d51d5f883ec715ac811e73f9cd87290e5e6b9051b586c74c45f442a542a253",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 2540,
+      "sha256": "bd3c88ee97b9b17a660fd24bd29c6b35f929873b1c77d80445c3fec105147589",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 1356,
+      "sha256": "956c7f0b0385635baefafe880381f042a2c336dce1aedef212c05af5aac54a49",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 1798,
+      "sha256": "3c7b9d8926d4ac85a19954bbff952b705267400766674352a6cbe6b968666f3b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.<anonymous_closure>_(#6).asm.txt",
+      "bytes": 1697,
+      "sha256": "7b1a070a3b2cdec2daa7162b6d9a9a23fb0ded6a5e185239e8180fc600a1aba3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._initialize.asm.txt",
+      "bytes": 19240,
+      "sha256": "c8d1429aa3a320a30e1e91e7de801bfa5bf4152cb593dd33570bca04f3158789",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._notifyInactivityCutoff.asm.txt",
+      "bytes": 8834,
+      "sha256": "72b6495c35db1f48ad7b87438872c6d6e01529b3dd27b7162e44fc324af1fac6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._onQueryDispatched.<anonymous_closure>.asm.txt",
+      "bytes": 969,
+      "sha256": "a9fea57643b6b7b6026507397fc627df0d3e6fb9abe551715719e19aa0b5f8f4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._onQueryDispatched.asm.txt",
+      "bytes": 11506,
+      "sha256": "c6bb4acee1ebaa6bbaca08966547e512ad8813ae7d01be20d8aaf382b9afa937",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._resetSessionAnalyticsCounters.asm.txt",
+      "bytes": 660,
+      "sha256": "9da788c214d56ebb03e7d03f33b844795e398d164dcc07b28afd5a5d6e5f17ea",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._scheduleMeetingEndNotification.<anonymous_closure>.asm.txt",
+      "bytes": 1558,
+      "sha256": "ba085ae86676f584c0f6ba862fd87b957fbb86f7303f03bc42f7212a351ef654",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._scheduleMeetingEndNotification.asm.txt",
+      "bytes": 10228,
+      "sha256": "6192a787a71e8f2fea1ab3426e27525856157c3cb08e95e41855998197b95b4b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._startRecorderWarningTimer.<anonymous_closure>.asm.txt",
+      "bytes": 1081,
+      "sha256": "530f2cba2fb8406373eb463c5fc43c6659ac0ed6fb17caa17784bb2b75946e5d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._startRecorderWarningTimer.asm.txt",
+      "bytes": 2812,
+      "sha256": "1af10700dd97e7801a1dabd8645840d59101a6ed9fe39b05dca045762d8d682c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._startSilenceCheckTimer.<anonymous_closure>.asm.txt",
+      "bytes": 1072,
+      "sha256": "7c6d7681e674f557510f21f7302386db6a1981f0dc427336a3409d40c6e96c5a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._startSilenceCheckTimer.asm.txt",
+      "bytes": 5721,
+      "sha256": "3220212fabdafce4ed7f0e62e79d3e358558d235d0f04d813ec0a959486a200d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._stopRecorderWarningTimer.asm.txt",
+      "bytes": 1449,
+      "sha256": "a723d2f81d0f86732116ba3edb5776dbd8656ed63e39efafe283804d57e8f76c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._stopSilenceCheckTimer.asm.txt",
+      "bytes": 1434,
+      "sha256": "0f10d7dfc638d1befe9a318781e28abdf54042624e8e7af444a7fddbbd0845a1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager._syncNativeInactivityTimeout.asm.txt",
+      "bytes": 1933,
+      "sha256": "70c642f2e81bec3acc52cb84e2b45e05408fed2b483be7fe395919f0eadfe6b6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.checkScheduledMeetingElapsed.asm.txt",
+      "bytes": 11564,
+      "sha256": "e17ec8521657b6d0454a287c58aca3411fb65d73530f89736939ee2afca785b7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.checkSilenceTimeout.asm.txt",
+      "bytes": 8796,
+      "sha256": "f93c8c0aed666d456992cf8b11155ede46d4312112cfd39bea33061adf6d3c19",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.dispose.asm.txt",
+      "bytes": 5245,
+      "sha256": "a5a2c720ebe08ae116cafb8988aef88469a8752e49097c54783b2a630188940d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.enableQueryDetection=.asm.txt",
+      "bytes": 1610,
+      "sha256": "4e51a7b6da7e28428ef61d30e973d0fffc588c43bbb38a6839285cf9284179bd",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.flushPendingInterims.asm.txt",
+      "bytes": 14237,
+      "sha256": "015ac6e2917ac63375019fd5c441a4299671c87df3a8361eb05988c78038eb59",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.handleScheduledMeetingNotificationOpened.asm.txt",
+      "bytes": 4479,
+      "sha256": "2775c8aaece156fb0cf78ba66d8574747340824d5ede9e376c5bbe024c4c9561",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.inputVolumeStream.asm.txt",
+      "bytes": 734,
+      "sha256": "0f6e6b06a847760219343ddb67dae387fb6a93346aa4362b52865ab3542fa83f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.instance.asm.txt",
+      "bytes": 1319,
+      "sha256": "9240d395f10e5c1571fe7cdb2eb802533af3f3d2f4b424847548bf0a38909163",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.isMeetingExpired.asm.txt",
+      "bytes": 1635,
+      "sha256": "422be89718bcdc0651b00ef36b86b1479d788f3862ddc8f28fc99ac6fd8c3b40",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.isMeetingOverrunExpired.asm.txt",
+      "bytes": 1999,
+      "sha256": "2fb1d3253e22791ed9940e08b8de3f30e409884b14f5bf69889419f6088ef935",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.isPausedStream.asm.txt",
+      "bytes": 731,
+      "sha256": "1f048c80dd6e1c045bbfa2451e15c42fa5173eb4eec88c66d066b3f19d49098a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.isStartedStream.asm.txt",
+      "bytes": 732,
+      "sha256": "da78412c2ecfe3558f1cd702f5714af622291a465b498070fbc96c89ee2cd130",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.onQueryDetected.asm.txt",
+      "bytes": 1040,
+      "sha256": "58f8ddda14ae66599b7f8118d29b54177c54b921e84fe4efef50fe4cf11857b5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.onSystemSleep.asm.txt",
+      "bytes": 865,
+      "sha256": "dc98da2482e373052a54637356a1665e8387ead504744df914f890f54847f59b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.onSystemSleep_(#2).asm.txt",
+      "bytes": 2298,
+      "sha256": "c462ebaa210b4f8f1f4df6623dfa1ce26b546bd93e566e0c3c62beca1c41b06e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.onSystemWake.asm.txt",
+      "bytes": 861,
+      "sha256": "89775f101436ffa6ed4a4b9fb82f85aca02fbc395c0ac4da0cb25ea8ed498e20",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.onSystemWake_(#2).asm.txt",
+      "bytes": 11215,
+      "sha256": "d9b465867b8f2a4585ffd6a7928935822fb51149d672a5d88a1d3fa405e39170",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.outputVolumeStream.asm.txt",
+      "bytes": 735,
+      "sha256": "230ee3a502c82d70512e18a2c1624d4066203b61dbe17dbd751ef6ba7c633526",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.pause.asm.txt",
+      "bytes": 3994,
+      "sha256": "a2e9f06a7782b45e2e98abb29f7bc37a42cb2607b3ab1cf16331bf966513fbd9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.playRecorderWarning.asm.txt",
+      "bytes": 3202,
+      "sha256": "1c4c9cddc55ff7307fba7228432872630aa228ef1b511e1bcd3463612befed56",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.processRawTranscript.<anonymous_closure>.asm.txt",
+      "bytes": 1020,
+      "sha256": "44a40b882173e5e902ae67abc324ae90b34112ae131efee77e1f933d39666bb3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.processRawTranscript.asm.txt",
+      "bytes": 38184,
+      "sha256": "cdeb31bd941f66a8368cebb5c2042895ce66ec095923dfad97ea4ebd5091e77b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.processRawTranscript.selected.txt",
+      "bytes": 3216,
+      "sha256": "68259e407cd5d29f7446e3e6ab4aa235c4de31bcb1dd412676109b1c763ae343",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptMeetingEnded.<anonymous_closure>.<anonymous_closure>.asm.txt",
+      "bytes": 1545,
+      "sha256": "d35b76f7518a126141e7d1eb693f0e76d04334b07f2e79bfde576602ea3fe525",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptMeetingEnded.<anonymous_closure>.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1560,
+      "sha256": "55c5513de0785efbd34caafd980c99785996641df341bd77e4f17a1655303181",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptMeetingEnded.<anonymous_closure>.asm.txt",
+      "bytes": 7725,
+      "sha256": "89e1e8229af32bc60a09af44567027aca5c87508aa59560c18e3cdab4b3e47b1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptMeetingEnded.asm.txt",
+      "bytes": 14187,
+      "sha256": "d5b59fcb434602b4a13c334f7f37e0880b0cc3642d235bbacd65b28e239be9d8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptResumeTranscription.<anonymous_closure>.asm.txt",
+      "bytes": 7739,
+      "sha256": "6a19a970dc3b16834d93bba91124ed15e71acbb0752a1e5ee87c0e0572389716",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.promptResumeTranscription.asm.txt",
+      "bytes": 14647,
+      "sha256": "e32d85b3b2a92b6024da4692397dfbc61df43e1c17483e38bafd852b37af000a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.queryStream.asm.txt",
+      "bytes": 704,
+      "sha256": "c47ba239361bc58775004b91226140f3e607aeeba5b35bf2fc77e450a3db0aab",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.resume.asm.txt",
+      "bytes": 3419,
+      "sha256": "300335cee1d9ba94dfa3ce79060c35f20115a60e14f0569e36faef1752586a75",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.setScheduledMeeting.asm.txt",
+      "bytes": 2032,
+      "sha256": "283cb6a0647220a4c40739e1d34e110a66d6a64eabcd0b0d79838025c12cf0b7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.silenceTimeoutMinutes.asm.txt",
+      "bytes": 1770,
+      "sha256": "439aada942306d8b3e50cf2796fb48c37f12c53185ad478b70ef85263c42f5d9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.silenceTimeoutMinutes=.asm.txt",
+      "bytes": 1720,
+      "sha256": "648ae35a01370854334cdcf8fd6cb0a98bfea178c881a1c8ec5ee88e9f5584fe",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.start.asm.txt",
+      "bytes": 17748,
+      "sha256": "a1772361356b794c592f51c7cd7dfa2b09a34b35702de492ad716d28eb3e4016",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.stop.asm.txt",
+      "bytes": 20285,
+      "sha256": "6f412c853420a3583a18d0c51c6672f1b7246cee4cd2b9dc1ccca69c06815ef4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.syncScheduledMeetingEvent.<anonymous_closure>.asm.txt",
+      "bytes": 1415,
+      "sha256": "80667213db0c8a7716b9e69ad63a13b07eb58b148e4745d35cdb734e1f8bb98e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.syncScheduledMeetingEvent.asm.txt",
+      "bytes": 4507,
+      "sha256": "e1b84eda3317aa9ca11eae8733d5549e84221ba698cd1780170177303f38a814",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.transcriptStream.asm.txt",
+      "bytes": 709,
+      "sha256": "fa23c1afb5d196cbe08a1a6e4d9db8ff023ffd0ae1d8b7c39367906ee7ec6aeb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.unloadAsrService.asm.txt",
+      "bytes": 1706,
+      "sha256": "d2965c10f77801e6f33b133be0ca331bcf5c9d684054193f41c77ad39f795c83",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/TranscriptManager.warmUp.asm.txt",
+      "bytes": 3826,
+      "sha256": "2b6811b16e897d09629f10783da1b0241467652ef8110a33a5c23d5cbde2d7f8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._handleMessage.asm.txt",
+      "bytes": 958,
+      "sha256": "a6dd0362275a217c869faac8462d2e82126f24b0589944f28ba13f88172bbc20",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._handleMessage_(#2).asm.txt",
+      "bytes": 17128,
+      "sha256": "f2115e28e79462d16de1a6bde5819ad71d542d43b256459e394929e5fad47eb7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry.<anonymous_closure>.asm.txt",
+      "bytes": 1764,
+      "sha256": "fa4991caefa4c311c29067fc719c23d76310dbc381b275626eef37903f406d7f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry.asm.txt",
+      "bytes": 864,
+      "sha256": "a647092cc82dbc832c0c00ae5ab5af99e7d2b856ab98637e71f1623e83c1897c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry.createEngine.asm.txt",
+      "bytes": 2889,
+      "sha256": "3612acefa90df97fb79608102df99ca0ced634ae26dcf4fdee02c7e4537d983b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry.createEngine.selected.txt",
+      "bytes": 180,
+      "sha256": "4cb012ba093ad310b1095380d3e21ffa8ed078df5e98bf7cf42062995420dcfe",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry.createProcessor.asm.txt",
+      "bytes": 5511,
+      "sha256": "5220b088c6bcf90af4959cc1b7822a8c5ac8d5e510843a68cd7408cf70905605",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._isolateEntry_(#2).asm.txt",
+      "bytes": 51887,
+      "sha256": "243f617c949c394cabecfcaefdc26cc2142ba1f6ce0f089f25d9dbdda5fe7dc2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._maybeProcessNextRequest.asm.txt",
+      "bytes": 5633,
+      "sha256": "9634b08fb043400c682e7a6a8fe27a466e69c89839682ba510ef3b14eed179e2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate._startIsolate.asm.txt",
+      "bytes": 5999,
+      "sha256": "33c7855bdff546f36743e6f98543804f282dc386eabbb2b46c6364214893f1c2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate.dispose.asm.txt",
+      "bytes": 13886,
+      "sha256": "b7437e0eef996e2d34e86fd7b50a6fdc3ffe3b93ed667db05b812b5108bd1703",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/_TranscriptionServiceIsolate.transcribe.asm.txt",
+      "bytes": 16438,
+      "sha256": "a1e6dd4fc1b2f88a93e54bb637add80d4018eb451d7be58f4d9a42b779f3a082",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/manifest.json",
+      "bytes": 35498,
+      "sha256": "de087a33d6e92e78bf7c6933f023d9ff20c2388c0b6c512ad8b35cd07d5b4769",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/new_OnDeviceSpeechTranscriptionService.asm.txt",
+      "bytes": 4986,
+      "sha256": "0c8f6ee8bc22a6e8e085665c30d33d1fe47c9b5d2ea1da9f8834ec35c9b40e31",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/new_QueryDetectorOnDevice.asm.txt",
+      "bytes": 334,
+      "sha256": "d7d80f7d41ed6c23c6abe2d0f50bfc60f532c9594335124a3dfab44931a92ce3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/new_TranscriptBuffer.asm.txt",
+      "bytes": 3106,
+      "sha256": "7c0c12f3f5c468ce7950ed02b12d71389ca99ce6d0d2f275c2e466bafc7331e0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/new_TranscriptManager.asm.txt",
+      "bytes": 381,
+      "sha256": "41c8834e197c6b64ff31ba3e02e69101b296f3296436120e08a405ed11427d04",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/new__TranscriptionServiceIsolate.asm.txt",
+      "bytes": 4964,
+      "sha256": "6ddeb1944cc3bd5a019c80b737dbc8c61aa0187c1191ef7d7a483a5cc0383824",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "pipeline-evidence/splitIntoQuestions.asm.txt",
+      "bytes": 9286,
+      "sha256": "556d8fd4f697ea6e1b714c4e3d6d10edbbfc2725d7bdf5e4203bdf86545ec0d0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCapture.setSampleRate.asm.txt",
+      "bytes": 2492,
+      "sha256": "5025c88f620e53af19f7d974894ee9be7a4604ab657a2d40c74d5a9c170b64b4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._cancelInputWatchdog.asm.txt",
+      "bytes": 1660,
+      "sha256": "1728afd541c503914fd7bf75bd3c820139f24172c83159a577efbf2e5aaea173",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._recoverAudioInput.asm.txt",
+      "bytes": 10248,
+      "sha256": "60c9fa3e313448a49da4e8ac0db7ab0b9ab650e5717630182ab19e67936e6536",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._setupErrorSubscription.<anonymous_closure>.asm.txt",
+      "bytes": 5131,
+      "sha256": "810d1e315b8cf2a378af85ebfde5bcebad1fcc54f2aef7614a3ba6fbd39200bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._setupErrorSubscription.asm.txt",
+      "bytes": 2571,
+      "sha256": "2b32a20a45093466a13ed5cb2f7617aaabca0a97c95f2e88d11621d25842aae1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._startInputWatchdog.<anonymous_closure>.asm.txt",
+      "bytes": 1065,
+      "sha256": "f772e53fc481fe1e1542ca0be4efac1034206214305daf439d7500c549b0b3ad",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._startInputWatchdog.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1934,
+      "sha256": "8c14c4107e30ed560ef35335ef1c5733ca902cdd0f74908d89215faa87882749",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource._startInputWatchdog.asm.txt",
+      "bytes": 3844,
+      "sha256": "e4fff4b8403e2b5ecd76177f0eb96d7c5fced615e84d11388d6727ed56badc6e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.inputAudioStream.<anonymous_closure>.asm.txt",
+      "bytes": 1297,
+      "sha256": "7996b46d2a53139e28936d3fd11408fd4984e9a16d2ebc823ca32ea8955d12e6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.inputAudioStream.asm.txt",
+      "bytes": 2031,
+      "sha256": "afae6585fac235e5b3e82a439ec7023244ac8643c6f275608f5590ba6b7b9307",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.inputVolumeStream.<anonymous_closure>.asm.txt",
+      "bytes": 618,
+      "sha256": "28129715e3c8273acd17bfb887b8c1c2b8624de14e699c17646ed4c1099aab1c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.inputVolumeStream.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1915,
+      "sha256": "b86685f735a084219caa7d7fa8960d913aa9056ebe6f5e92f378d4c76b8fe31b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.inputVolumeStream.asm.txt",
+      "bytes": 2034,
+      "sha256": "8fa7a3eafe29c311db4dcb6509530e7317df2a68a80cd1f1e1f214a6b4302849",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.loadAudio.asm.txt",
+      "bytes": 1316,
+      "sha256": "23fc704eef260346f4d22582120de5f55b941c98bd1a5d48b2780937a371c448",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.outputAudioStream.<anonymous_closure>.asm.txt",
+      "bytes": 1301,
+      "sha256": "73d4327cf6bfcc431062920f93e6a1444f1522152ab2246fc6c671f8eb8b80f1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.outputAudioStream.asm.txt",
+      "bytes": 2034,
+      "sha256": "7b864165bf1d40249e51306b375361a30339c67a4e1ae2b68193cfd6ee695759",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.outputVolumeStream.<anonymous_closure>.asm.txt",
+      "bytes": 8959,
+      "sha256": "e457ee24463cc005d0feb0e5b4c972990922c28bce3beccc94ce53eec5fc6919",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.outputVolumeStream.asm.txt",
+      "bytes": 2037,
+      "sha256": "c341fd7cb87d36b8390e6cb7585cbea2892aed5e0f34237eb6f406534e934cb0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.playAudio.asm.txt",
+      "bytes": 1316,
+      "sha256": "c7e1b73399cdc457b850e4f64339ad3741f14bf3abef8c73db5fed7673280c43",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.sampleRate.asm.txt",
+      "bytes": 838,
+      "sha256": "4710e95a1d6e2e3392f480ee780eb07888965aac1f08d5681ad7f8bde556db72",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.setAudioBufferTimeWindow.asm.txt",
+      "bytes": 1271,
+      "sha256": "2d235338aec6a06788f77bc26e5e1f6e7709e7ba87b151b8aa8da8a3550d8499",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.setSampleRate.asm.txt",
+      "bytes": 1238,
+      "sha256": "a90f46492f201fe79a19bbdf2e07bb3fe4c4826501125af3e8891da93f3ec7cc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.start.asm.txt",
+      "bytes": 4540,
+      "sha256": "cb76c7938759446f593318ebe1138e1e86daafe6cb51a8cc15fcd30e733e225f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioCaptureSource.stop.asm.txt",
+      "bytes": 4129,
+      "sha256": "a01e07cc3a1a27dc79499f3056c13cc4472870267c163cd31642ab55b3a948c1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector._getBuffer.asm.txt",
+      "bytes": 3634,
+      "sha256": "2207853ed3e3173fa84139a7407fedfef5f41e8e4b427804faabd6c6d1ff50fd",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector._handleTranscript.asm.txt",
+      "bytes": 962,
+      "sha256": "e38c9cfc275bc0131ef844349b30a37e0a9caebd053f4c35096c2add6678bb28",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector._handleTranscript_(#2).asm.txt",
+      "bytes": 1065,
+      "sha256": "c97784f77907d76028eaa25c662ffc22fa7ff5106d5f799baab968b1c302f2a8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.dispose.asm.txt",
+      "bytes": 1214,
+      "sha256": "596c0c2c5e92c4a2988877214b3e944abd66bf952b017a29a0f5243c5370da25",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.extractPcmChunk.asm.txt",
+      "bytes": 1221,
+      "sha256": "1541ac36f2877e7cd2b39199b6c0d3035cc1ca36f2bfc53386c9dc8f0612abd8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.getCurrentAudioPositionMicros.asm.txt",
+      "bytes": 974,
+      "sha256": "a7d6a5e4fe0de620cc4684c50018a6cd4f5733c93ada84b92fbffc485e17f90f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.inputVolumeStream.asm.txt",
+      "bytes": 893,
+      "sha256": "603d3cbeaa1d1fa078ac4808785c117f12eeb3ab03d094584a90a6a86ad1fc38",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.outputVolumeStream.asm.txt",
+      "bytes": 897,
+      "sha256": "1950597b80d8fb0f516d26c2fd57804c88a4e51f5edb93dd55dcf8869cd82bc4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>.asm.txt",
+      "bytes": 2371,
+      "sha256": "91dcd6fc8428eb52398cd9fcbb10bb35ea6f443cf9a056c1c12ff0bbc6201637",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3723,
+      "sha256": "eb12c6d085f08615d8fc9cff3ecc1b685a3509fff9c3f3e686181a1d869827e9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 3471,
+      "sha256": "a6a3d18a9ca95c629392f058bb3ba047a08010f595c58e52ad9ab2e8d1952a5e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 2387,
+      "sha256": "4547227bd172a84001a5fe877437d2af98f42a01c7ba1ee1ea28851adfad2b49",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 3720,
+      "sha256": "91b1fc4695f204ccfd5c862730b0432117cbc1f4a98bd0d2c8d325d1f41cba31",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.startDetecting.asm.txt",
+      "bytes": 13125,
+      "sha256": "d253f5a4c8edf2912a1d3214646ac72dc7855703e5010f5d43a3b2be92c761b0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/AudioTranscriptionDetector.stopDetecting.asm.txt",
+      "bytes": 7261,
+      "sha256": "b41af4e5fe79cde69a191ac77350cc7bac31e96573ed42bda6e134330374a184",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/GeneratedMessage.$_setSignedInt32.asm.txt",
+      "bytes": 2917,
+      "sha256": "4558a70956337a6121dfa304767086f787a1d205d2f4f1f0b555bd31d0e7c263",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/JaccardIndexStrategy.isSimilar.asm.txt",
+      "bytes": 5973,
+      "sha256": "d1a0ea469d7009784136a786762447f6fe03e4369be218df748ab55fcdf7a7a9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>.<anonymous_closure>.asm.txt",
+      "bytes": 1167,
+      "sha256": "d0571a6ba7629e5d8d50780d1929916fdf8c80583874be6a6943d55a8fe3096e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>.asm.txt",
+      "bytes": 572,
+      "sha256": "e1a41166c186d4fd713e1d7834918f8fa805a1b2a7d4406d590f9333fa908fd7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 5732,
+      "sha256": "df3b2941253f2814a80ef464c273d7febf5e70e72b065f766262846cc0a24b64",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 2621,
+      "sha256": "519c274d15d12cc7ef1c62594acfac387ef9f770e646862540afe270b40d195f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 2560,
+      "sha256": "fbdfc1439f617480346f6802427efe02006ddc23e447f04c3deed698f0afd828",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 2063,
+      "sha256": "6c7eef2f20997c8eab1f1252a532dba1b83a10483cf24d1904b35b3af1c49a72",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#6).asm.txt",
+      "bytes": 2839,
+      "sha256": "1bd23d945838e9173d4d7e0263092d968cff816c30c7bc8ceb24205f54b66633",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#7).asm.txt",
+      "bytes": 2115,
+      "sha256": "c950628f521ae032d8d0e585f8a5a61e8dfd5d0c10b1ffcd42c6da5da224d4da",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.<anonymous_closure>_(#8).asm.txt",
+      "bytes": 5160,
+      "sha256": "1a2b9b68c192af6c474795fc823dd55f78b8f03f50400a305d6347c876a13a68",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote.asm.txt",
+      "bytes": 67800,
+      "sha256": "a9f4ab20e666d7e0e9af98c2668d26be37d1dba5de4f5935ab7a5e2338dac2c1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._enhanceCurrentNote_(#2).asm.txt",
+      "bytes": 2863,
+      "sha256": "fba7987e7ae0d1dbc3d4ac6b3972dc8f827baa1965c9f2ce930ce43e7f6e4630",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._loadNote.<anonymous_closure>.<anonymous_closure>.asm.txt",
+      "bytes": 977,
+      "sha256": "710740a6d4321b11818aa5e3579a46973b1779c415f71e030254b57b8be0df2d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._loadNote.<anonymous_closure>.asm.txt",
+      "bytes": 20609,
+      "sha256": "4e7445efbb97f5d07a86fe9dc05e0c30eae1f975a20ad27634070edf6773af64",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._loadNote.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 921,
+      "sha256": "e255d3dd3b40b5b93ab24e7bc9bd57f0a63a0c84c9e004621fc69cf89ab5e1b1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._loadNote.asm.txt",
+      "bytes": 8905,
+      "sha256": "916da93da7936d62a7b3400049990c782f7a5be7b01d3d253d0826f703f216d6",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onShorthandChanged.asm.txt",
+      "bytes": 901,
+      "sha256": "c1c13e86c7feaa711fecba322978ec26491bad890b59ec8bb1c9d6ad313c422e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onShorthandChanged_(#2).asm.txt",
+      "bytes": 13963,
+      "sha256": "61bbb7089f9731160f5df031a6b5ccb67210116a3852893fbbbc39e1089f0718",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onTranscriptChange.<anonymous_closure>.asm.txt",
+      "bytes": 1688,
+      "sha256": "8ed58df1bd4f1c6ba8ac8801d2bc0d64194fbcb155bfc63f1ed915bd338bacf3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onTranscriptChange.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 2095,
+      "sha256": "9905d996f4bb230b8748c122d56e1c54906e7bcdef49d3661b0de4e9a0ea937a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onTranscriptChange.asm.txt",
+      "bytes": 4770,
+      "sha256": "8fc038a0e63ac9188da3ffb419b2e116088c90e25bf06473cc8a8eaf51ebd73a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._onTranscriptChange_(#2).asm.txt",
+      "bytes": 911,
+      "sha256": "5278003047ec0f5b97bbe3cc55a5579383e171ba78197d2727ec15e3e27f9048",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._runLiveEnhancement.<anonymous_closure>.asm.txt",
+      "bytes": 1498,
+      "sha256": "82da9362a99c81d5d27eb9489bb0ac21271947a16ffe4f70b1b5e8eb5b4f06cc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._runLiveEnhancement.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 622,
+      "sha256": "4d5e4ca2f329e274bbc209bd9a772143c1a484a7f918149ab98e28f279d31494",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._runLiveEnhancement.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 2063,
+      "sha256": "b4642bc2bb4e87d11db16786ef15b3f23202e7b33495595631aaa743bd6fb465",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._runLiveEnhancement.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 2064,
+      "sha256": "dcf2dd49bafb32bd4ad3929c02e03dc0694f1f407f2e906692ae8c660fcbcd77",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._runLiveEnhancement.asm.txt",
+      "bytes": 75405,
+      "sha256": "b586e400e8de20375e9faf6b57d30f81005d55749b0363e803e955447f70d789",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._scheduleSave.<anonymous_closure>.asm.txt",
+      "bytes": 1117,
+      "sha256": "71d51c3767561e9d7fa1d34857272a95f1aceab9acb16031965f2f43d019425b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._scheduleSave.asm.txt",
+      "bytes": 2433,
+      "sha256": "2c6caeb6da7abe6a057b1714a25ee184c162ba91051dfb1b47772f24767719e2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._syncBulletsOnShorthandChange.<anonymous_closure>.asm.txt",
+      "bytes": 2026,
+      "sha256": "8122e585019fdeb85999f7fb0c51047a9682d9288d2fefa85e548ff335581dd7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._syncBulletsOnShorthandChange.asm.txt",
+      "bytes": 36757,
+      "sha256": "f8a718fc13a3bc93b5f7444ecb31d849f6e09d39f29b34f8c56a1d0b890033bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState._syncBulletsOnShorthandChange.normalize.asm.txt",
+      "bytes": 2037,
+      "sha256": "d8fd87e7325428038efafa1d0c6872c6df73cb708b316c8d410f28dfd337e103",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState.initState.<anonymous_closure>.asm.txt",
+      "bytes": 1996,
+      "sha256": "7f778d3d0d25e7ba86d4a03fe1f067205a222f345d6bcb867ebbb7c4d6ffdcbf",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState.initState.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 3484,
+      "sha256": "0f54924528e9b2881a945c60af87933934a9d54e606795d82aeb7a2c998e268b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/MeetingTabsViewState.initState.asm.txt",
+      "bytes": 18952,
+      "sha256": "6fca4141a09e98f6ad9edb43aeb98d5fdbe5975c5b010200aff54185132ec03d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._cleanModelOutput.asm.txt",
+      "bytes": 4697,
+      "sha256": "b7918e947cfaa4849bfcb884e12612ef5aa9358de4c6aa0f676fe28a5475c3a4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._clusterScribblesIntoBatches.asm.txt",
+      "bytes": 36540,
+      "sha256": "b0f2ed94638df0b637d0d9a623faf79e00241c373b823424a7879917443ba8e8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._embeddedTranscriptChunks.asm.txt",
+      "bytes": 5320,
+      "sha256": "5a6c6ca783b8960b76e4c2485213f8e2b0913525f9f274371121ea5b59668d1e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._extractText.asm.txt",
+      "bytes": 11196,
+      "sha256": "98968cc9e89565047d5dc69711087c32cc39fc8188821516bde24acd90c5db09",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._markerOnlyPattern.asm.txt",
+      "bytes": 1333,
+      "sha256": "fdc113401e7b000839853c97c5d89dd29e12680280da346d66817d4bfac22401",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer._toFallbackBullet.asm.txt",
+      "bytes": 2291,
+      "sha256": "f98247da9a0196c4263371c2b4e3dcd0a970442b0c69924296771f1b9bc91f6c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.buildPrompt.asm.txt",
+      "bytes": 12717,
+      "sha256": "5cf4ae5a5c89799cb2fafe200ea63e13ba8b63b5b9530daadea065612753271a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.cleanTags.asm.txt",
+      "bytes": 3396,
+      "sha256": "eab858ad902dea3abdb10fceafd35a5c42e1302c3b587e8d3e1e13021693b5b5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>.<anonymous_closure>.asm.txt",
+      "bytes": 2027,
+      "sha256": "a56879525158b010983fd400c4f40c3df54adeff88faee2e77416367306384bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>.asm.txt",
+      "bytes": 1199,
+      "sha256": "2cac2f7de4af5ffbe207de969684e9ff1a3620d14667360dc3eaae728fd55ed9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1582,
+      "sha256": "c1adc1e6af406382d0f1c80cbb9017fbb3ab7575e28cfb7f3d19cf4ad854f59c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#3).asm.txt",
+      "bytes": 1844,
+      "sha256": "5d38f0f981968114ee36ae9cd3fb19d848158b6e0e3a2122debbc25db2396770",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#4).asm.txt",
+      "bytes": 1428,
+      "sha256": "79ed9e3d0b52321906a59f7203e0e22210403ca5dd2ccb63a66a931298a65fb8",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#5).asm.txt",
+      "bytes": 2775,
+      "sha256": "bf196734d51f0ffa3b00570a443215fe610450401ebc39850d07d1521ffaea78",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#6).asm.txt",
+      "bytes": 881,
+      "sha256": "6036822d6250102f053ce4be4374e53c94d9ffb108d394235baf43f04d20586b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#7).asm.txt",
+      "bytes": 3323,
+      "sha256": "ad7488efa70f7ef2873e10811b24120bfc67686d496fcb6285415a6703b2e2c3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.<anonymous_closure>_(#8).asm.txt",
+      "bytes": 1094,
+      "sha256": "1ac8cc64b006540e33e70188e673ff4c4f4941275735d5227bb0b4efb2d66dfb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.enhanceStream.asm.txt",
+      "bytes": 319857,
+      "sha256": "c94058bfa91ec3e2f9bbfa86d12ae7500d9d806d5e4b7323c55a52818fede44a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.formatNotesWithSpacing.asm.txt",
+      "bytes": 6063,
+      "sha256": "63ab69314f46105160b73ae82ce1d4841f0ce8660e967e872af862c686f73d97",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.hasEnhanceableScribbles.asm.txt",
+      "bytes": 6506,
+      "sha256": "67a698c1f48a1e82b6677c423b55aaca67592deb179137839c555f097fec8312",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.hasMeaningfulContent.asm.txt",
+      "bytes": 2011,
+      "sha256": "f79f04909dd720bd78df0e6fb694415569a74a539b3656118929abbcdb204df7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.isAlreadyEnhancedLine.asm.txt",
+      "bytes": 3790,
+      "sha256": "527e3612ee6019a9e2b2eac9d4ebfb1ed6d51650d4374c0f1af4ed0b9081a934",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.mapLineIndices.asm.txt",
+      "bytes": 7345,
+      "sha256": "de6da32980c9520afd9c7fa047ea383b8962aa7fb3b3c4d82b22bab49b561157",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/NotesEnhancer.parseBatchOutput.asm.txt",
+      "bytes": 18962,
+      "sha256": "57e87258c7e7619ed3df047925f1ddec274e6503b3e9b570fe87067b5aeb53ec",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/PartialRatioStrategy.isSimilar.asm.txt",
+      "bytes": 6318,
+      "sha256": "da2aca8ab5ab2d3e5ef795975e5a480de16cceeba576053edac12f421699b16d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/PrefixStreamFilter.processQuery.asm.txt",
+      "bytes": 3865,
+      "sha256": "1f40b6214bba31e3313cab66866e2ccf5d27e32f3820eb1d1b9f6f0c601d9bb3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/PrefixStreamFilter.reset.asm.txt",
+      "bytes": 859,
+      "sha256": "b55823f6f89c38d0ff01fe6ad7caf0afa32a8f50010fba7e0a008144efb33fa9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechPipelineProcessor.dispose.asm.txt",
+      "bytes": 1354,
+      "sha256": "f430e441d16d4539a1e60eed521b7a7c78d03101e71e656d3be1f434fce87c3a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechPipelineProcessor.getBiasingDictionary.<anonymous_closure>.asm.txt",
+      "bytes": 6216,
+      "sha256": "2e27b79281be9044dca81b71bea748d9340d10556c316e2f955aee9e7476c912",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechPipelineProcessor.getBiasingDictionary.asm.txt",
+      "bytes": 1980,
+      "sha256": "df9e287dfe694fe502cf3abcfb4e37bb5a9f222b5784e057375e20c0e44f450b",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor._convertResults.asm.txt",
+      "bytes": 23084,
+      "sha256": "76b0117d00127890651b49f65c5d2dfd1a595763294a7cab3211b75eb4185d30",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor.dispose.asm.txt",
+      "bytes": 2327,
+      "sha256": "e35d231d95358e605f8f936d5ce123559ef22687b435c6c18a112072b51d0c00",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor.finishStream.<anonymous_closure>.asm.txt",
+      "bytes": 3705,
+      "sha256": "1387dd8deb0ffe842138ea286d4aed44f6b6071814de94fcea55d8d5450dddbb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor.prewarm.<anonymous_closure>.asm.txt",
+      "bytes": 2491,
+      "sha256": "7f4dc57de4c124c97171d6b989ebf17af006dabed116dcce8fa2f1e169c15ab2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor.prewarm.asm.txt",
+      "bytes": 3071,
+      "sha256": "d2615d23229cc40d5b400523c1e4da430c40c44e4f51fc19e29ebe4a3d12cada",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/SpeechProcessor.transcribe.<anonymous_closure>.asm.txt",
+      "bytes": 10533,
+      "sha256": "a8d48ee265f8558989a9fd6ea5d2e4abd1cac0e71b7ebfd05c7846a6e2b5cdfd",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/TokenSetRatioStrategy.isSimilar.asm.txt",
+      "bytes": 12081,
+      "sha256": "f61b1eac4e83ec61335f19c2d45ce996507b1cc01b0151310ded33d89222fb95",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/TranscriptEmbeddingManager.chunkTranscript.asm.txt",
+      "bytes": 13113,
+      "sha256": "f96d1d5c3b5355e7cea3bc6ae906f1b2537473ad47b5e8b55a10fe24df78a4b3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/VadSegmenterOptions.$_createMessage.asm.txt",
+      "bytes": 791,
+      "sha256": "42f93f36d00ce316586fc5733511300d6154ab2e7a9176157c7dc15f746bff24",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/VadSegmenterOptions.$_createMessage_(#2).asm.txt",
+      "bytes": 1021,
+      "sha256": "73af9e661cee4c76e9f92fd67f23d5f230606c79aae4f2c616b514fa009febe3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/VadSegmenterOptions._i.asm.txt",
+      "bytes": 2591,
+      "sha256": "c86b315713af2fe5bd02ebd410baad12984968d40cc5c3d04b8f1b073c82b611",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/VadSegmenterOptions.info_.asm.txt",
+      "bytes": 1127,
+      "sha256": "7cace9b3142bb17340e2a93379adbbe1e529b23daf8294e9670188fba564a033",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.$_createMessage.asm.txt",
+      "bytes": 821,
+      "sha256": "dfbdeb5089ac69619c0478436e392db11fbbc44ba4778ce754db0a462e7238f7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions._i.asm.txt",
+      "bytes": 3851,
+      "sha256": "a8af819afb7e3091e1ab2143c6a60e7c5dfc0b1ef7f273ccb78d1019cf2088f1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.enableVad=.asm.txt",
+      "bytes": 934,
+      "sha256": "4b1c03e3ed5d7640811a5d819b21bcb23b1f61cd3ed308d43b676bc62e3d8ad3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.getDefault.asm.txt",
+      "bytes": 819,
+      "sha256": "d480fdc4ec85cc068acbfb6a28188bc952c09b6580aca22371617dc742cfdcf9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.getDefault_(#2).asm.txt",
+      "bytes": 1589,
+      "sha256": "b8c677ceb095fd2a8b0e3e4ab7223dc2644fb22ee077bee45f50c9dbf36ee695",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.info_.asm.txt",
+      "bytes": 1175,
+      "sha256": "e76ad228b180b35532e8b4e18ef453552d0069ec117520eee4d839d0d6ee0313",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions.sampleRateHz=.asm.txt",
+      "bytes": 968,
+      "sha256": "705fd2631d59155fc1f67ac9c1c0185a9c882634d10df7fd74c61e08b07f7b4f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions_AdvancedOptions.$_createMessage.asm.txt",
+      "bytes": 885,
+      "sha256": "6915ffe24278d5d119c8a7b02cca93effbb6b68c4dca3f8ecbcb9b7d06ff114c",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions_AdvancedOptions._i.asm.txt",
+      "bytes": 4562,
+      "sha256": "1e05d65aaa16fdeaf54dab8ec9e95e45f2792823d53ce21e7c8a1ae7a2a985bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_LiteRtLmSpeechProcessorOptions_AdvancedOptions.info_.asm.txt",
+      "bytes": 1239,
+      "sha256": "d68b1f1b98cc55c7b950600fc8184a88f813861593d284bb3c41196ee82d8e62",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/__ZN4odml5audio13transcription13preprocessing12VadSegmenter12ProcessChunkEN4absl4SpanIKfEE.asm.txt",
+      "bytes": 45134,
+      "sha256": "0b11d8b994dbab3caef5ffec44b08919c4345fb054b37bf0055edfd9ad150115",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/__ZN4odml5audio13transcription13preprocessing12VadSegmenter19MaybeSetupResamplerEv.asm.txt",
+      "bytes": 6898,
+      "sha256": "d07f934d92bd702cfcc7dd4db04eb81faddaf2e7b61f59b237e1822209e4a1bb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/__ZN4odml5audio13transcription9FromProtoERKNS1_19VadSegmenterOptionsE.asm.txt",
+      "bytes": 455,
+      "sha256": "37493a3ab81c56ca3bc0d535da770449c600d0c779ee431c729489440bc9f0a7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_processQueryIsolated.<anonymous_closure>.asm.txt",
+      "bytes": 4711,
+      "sha256": "982178ad56ef2f7ac3c1216e312188fab83462b05cdface6d51e7131df30c41d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_processQueryIsolated.asm.txt",
+      "bytes": 780,
+      "sha256": "ecada0ebcdc4afbc5abf5cf302113c55be66527478683e69c0e3049bfe3592fc",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/_processQueryIsolated_(#2).asm.txt",
+      "bytes": 30744,
+      "sha256": "1c7d8e48d15593c79598f806ac0faa686116f4ae2d8cd4c1e4349bc0c51523e7",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/functions.json",
+      "bytes": 205,
+      "sha256": "4d5a10aa2b626ae224c24dbb21fe4841479636d4e1d8347b1d1288eb4b647d0e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/native-vad-defaults.asm.txt",
+      "bytes": 10968,
+      "sha256": "37f7dcff1d8da5aa025871e488f45e5fff149f2cca9a0137867a4fef69650517",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/new_PrefixStreamFilter.asm.txt",
+      "bytes": 2244,
+      "sha256": "5046768950b2f22ea4843189ee2c24680597d164949b1d853fb3f75b60fc22d3",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/new_PrefixStreamFilterResult.asm.txt",
+      "bytes": 337,
+      "sha256": "07318a095d3fb85617f3203fa864114414ec5b7c22909402032f2b8a1bb6763d",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/new_PrefixStreamFilter_(#2).asm.txt",
+      "bytes": 336,
+      "sha256": "b7a7512999a37081f412bc64e994f20b44df82e0775976569b2e2d74677823c5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/new_QueryDispatcher.asm.txt",
+      "bytes": 3935,
+      "sha256": "78addb982bb91070b492d3fc306660b0b9f38788ff3d54793dee4d23e729cde2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "final-static-evidence/new_QueryDispatcher_(#2).asm.txt",
+      "bytes": 333,
+      "sha256": "f54d380d289fe6c7e9c2268f43e1c92c82f5b410bdcf24c8ebd05ec1471ec216",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/02-question-and-live-enhancement.png",
+      "bytes": 279666,
+      "sha256": "2e54dfb3b8782eebef5dc2e9c7cb4eb18ee3480a6edac115694ef93098041c4e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/03-chinese-and-english-transcript.png",
+      "bytes": 340103,
+      "sha256": "2e699c75e64c092f7a766d2b4163ea83a40cbabaa4ba6c48f43368a286c9971e",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/04-ax-state.txt",
+      "bytes": 3463,
+      "sha256": "44e8bc09c6cf23f2f3e326617dc786bc2bb3784824e56ac870597494ede58e41",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/04-enhanced-notes-and-stopped-transcript.png",
+      "bytes": 365713,
+      "sha256": "7d4b4120296db983f36d05c0069bae5e77233adb13100bb33f0f5f344852a339",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/05-final-ax-state.txt",
+      "bytes": 3566,
+      "sha256": "150d3d16f9e0f54e02234b252e583c5bfed7cdf7c262802a307b8e14d6d50057",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/05-final-phrase-after-stop.png",
+      "bytes": 366047,
+      "sha256": "e0d691150a824408b45306e8875f41c317250905d688f9b118c8d277fd60d369",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/chinese-input.aiff",
+      "bytes": 1011652,
+      "sha256": "9f54e00366287b41e913b10facdb21d7e0081dc421932d1a45d4b55682606cd5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/chinese-input.txt",
+      "bytes": 301,
+      "sha256": "2d0813488dc8e0440b942af664d87955c945adaaa2e1fccf65eb7c4b56217fbb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/english-input.aiff",
+      "bytes": 1163626,
+      "sha256": "ae5333270c8ed5da95af0976cdfbf6b6511e1417f18210e4bbbb8ef3a8039918",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/english-input.txt",
+      "bytes": 421,
+      "sha256": "51d8c1c209cebb5ab5fe108a6cb7a16091fd7f6ef29c815c0fcb5860cfe61bb2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/final-phrase.aiff",
+      "bytes": 145276,
+      "sha256": "8af1942bed274160b57400a34d39dbbcf47a076b2bf6f51566e3c13dfdbb99c4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "runtime-evidence/manifest.json",
+      "bytes": 30214,
+      "sha256": "02184e180fd77263a3566e323ddae0e7ede66fc03cbb477ba9e7da3a58c4daf1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/AppLogger.setup.asm.txt",
+      "bytes": 2854,
+      "sha256": "829176b073bf6ad8e436638900675c03e2310fc03dd57539c427609290009890",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/AudioTranscriptionDetector.stopDetecting.asm.txt",
+      "bytes": 7261,
+      "sha256": "b41af4e5fe79cde69a191ac77350cc7bac31e96573ed42bda6e134330374a184",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/OnDeviceSpeechTranscriptionService._restartEngine.asm.txt",
+      "bytes": 6159,
+      "sha256": "33c14fe2c3d624d621e105e4f1cfdce8a5a4b47d44c36903a80849781371e4c4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/TranscriptManager._cleanup.asm.txt",
+      "bytes": 5872,
+      "sha256": "5be5beec8b151c2eac76a84444063281ab23e5d8b56d00875a26557bda599446",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/TranscriptManager.stop.asm.txt",
+      "bytes": 20285,
+      "sha256": "6f412c853420a3583a18d0c51c6672f1b7246cee4cd2b9dc1ccca69c06815ef4",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/_AudioQueueRequest.getMergedAudioSamples.asm.txt",
+      "bytes": 4249,
+      "sha256": "4807e92d39b7abf3562908f48b42565b832a8bdbda97e69be5612e75dd0e48d1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/chinese-adaptation-16k.wav",
+      "bytes": 1669904,
+      "sha256": "49f4cb42b0bbb9d1db0ed1649b6e340a706629ef75fabe43f3a8fd17decc70ee",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/chinese-adaptation-input.aiff",
+      "bytes": 1151940,
+      "sha256": "dcce01e8374a31a42af34541a38870389a081ed154e497b94e0e814dc420eeb1",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/chinese-adaptation-input.txt",
+      "bytes": 340,
+      "sha256": "2455e3f90e0b2ec6b127ae5006be9adc1e6fda21e30a56cf74ca6b54a291d00f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/cleanTranscript.asm.txt",
+      "bytes": 4723,
+      "sha256": "b08f3c13686f1e759715c7a05c5ce477f699f2d2d8284fe69bfa537c71d74956",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/continuous-after-stop.png",
+      "bytes": 192564,
+      "sha256": "bcae49bc79ba35db9ce1b60367879ad9efc80154cc608d25d3cece4bfcd21fbb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/continuous-before-stop.png",
+      "bytes": 219978,
+      "sha256": "6ddea586945777357308bf349b736d30a57ec0694aa94bc58eba67df0f10e732",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/convertPcm16IntToFloat32.asm.txt",
+      "bytes": 5442,
+      "sha256": "10ff630d494815cca16c3bb1e8427dca0582f2fb151e5e9cc6f2f8867ae4da3a",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/english-continuous.wav",
+      "bytes": 1163626,
+      "sha256": "4819095bdffd7b6eb3ff000ed590efeba67706622d8b2d628750acc37a3108da",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/english-with-pauses.wav",
+      "bytes": 1821074,
+      "sha256": "1423933466fae93a562b5bde904d56ece8162ed24fd560ca058f8926b0a012e0",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/final-stopped-state.txt",
+      "bytes": 2393,
+      "sha256": "d7b3179543cd7a9394b51e3d57718ce76ec6251e68df0b414046882464c528c5",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/functions.json",
+      "bytes": 308,
+      "sha256": "4b42d17efaad4ab4c0f7e08d949e067dc8129d5d12ed69454947b96654bcd937",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/isGarbageTranscript.<anonymous_closure>.asm.txt",
+      "bytes": 1617,
+      "sha256": "15aa4757298843c8c4bbc73ca4a507124e7795b6764e01a96c755b3387f1164f",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/isGarbageTranscript.<anonymous_closure>_(#2).asm.txt",
+      "bytes": 1693,
+      "sha256": "54149b0df9989c6f2830c7534279c3a39ad5d2b577a856970c3ee024d3b5e6ca",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/isGarbageTranscript.asm.txt",
+      "bytes": 10174,
+      "sha256": "9f044753a8eb117224bc70b3f42fb83eea4538d8030a8aa5a1455739ac216951",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/manifest.json",
+      "bytes": 4729,
+      "sha256": "fee0942fcffca09ca50f1719c6b9c9cd78c31f7406b3583a3ba08add35c808cb",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/new-session-persisted.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/paused-input-after-stop.png",
+      "bytes": 197228,
+      "sha256": "df6525000b25ee6e7d6afa09d341f8d4d4f7e39549408ba9010ce49e55fac0c9",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/paused-input-before-stop.png",
+      "bytes": 207633,
+      "sha256": "03a2a5e65ee7832a99702abf116ec8b910748119b3ebcc382f188e3fdd5649ff",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/run-plan.json",
+      "bytes": 411,
+      "sha256": "47933a410ad4693885644cb6891f92ee1df68335ba5187b137cc4a74b31a89e2",
+      "availability": "retained-in-local-archive-not-distributed"
+    },
+    {
+      "file": "loss-evidence/synthetic-persisted-transcripts.json",
+      "bytes": 1403,
+      "sha256": "a8f8f4b31e7ec75a6035a71f66914cad71000854c1b960bc80f5a730cbab8982",
+      "availability": "retained-in-local-archive-not-distributed"
+    }
+  ],
+  "published_files": [
+    {
+      "file": "chinese-input.txt",
+      "bytes": 301,
+      "sha256": "2d0813488dc8e0440b942af664d87955c945adaaa2e1fccf65eb7c4b56217fbb"
+    },
+    {
+      "file": "chinese-replay.json",
+      "bytes": 775,
+      "sha256": "1634d09e5c99602b16934d01c165fb19134968d22af55f10635dc7d39148cabd"
+    },
+    {
+      "file": "dart-foresight-profile.json",
+      "bytes": 24655,
+      "sha256": "f109deb93fa90006b4aca5ce37d65ed415266a4f685e30e8487649dca09e2af0"
+    },
+    {
+      "file": "deep-report.html",
+      "bytes": 5060,
+      "sha256": "6c916ec63364bc6a6d347abf1c08facd13baa7285725b55c69c1fca4eea877fa"
+    },
+    {
+      "file": "download-report.html",
+      "bytes": 8998,
+      "sha256": "2365d0249f42d83341c97d0384f9e914f0ab2c41c11e9f27bbc0d4f20308bf01"
+    },
+    {
+      "file": "english-input.txt",
+      "bytes": 421,
+      "sha256": "51d8c1c209cebb5ab5fe108a6cb7a16091fd7f6ef29c815c0fcb5860cfe61bb2"
+    },
+    {
+      "file": "index.html",
+      "bytes": 1947033,
+      "sha256": "d7a7b0db04198be9ac99d6ed149c2fb85d08946a4774f3bb18624260bbe30303"
+    },
+    {
+      "file": "loss-and-chinese-report.html",
+      "bytes": 11990,
+      "sha256": "7d819810555837c19e5952b40cb6f1ad2df3a2b80456e939b186fb1cb137213e"
+    },
+    {
+      "file": "pipeline-report.html",
+      "bytes": 14774,
+      "sha256": "6854bbe442cbac30f4cc4897273ec3f683a7a9aea9672e065d2a4ff76897c0d7"
+    },
+    {
+      "file": "report.html",
+      "bytes": 4499,
+      "sha256": "d4bf945c63533ce7f83745812708b63f1dd3ca954f4456b9e2033afe9701f8c1"
+    },
+    {
+      "file": "runtime-report.html",
+      "bytes": 10782,
+      "sha256": "cbde7710dfd26833742cfa973e8431ea53748d6155d70abc41fef88f61898ade"
+    },
+    {
+      "file": "summary.json",
+      "bytes": 1270,
+      "sha256": "3e110ac05a650f42624477178b210903ab075aebf9dcb0ce31a4fca908b63141"
+    },
+    {
+      "file": "symbol-crosscheck.json",
+      "bytes": 3648,
+      "sha256": "feecc4f3573371383fedb3110b98b3cafe71c17833471d9d61ce30261bf6688a"
+    },
+    {
+      "file": "third-report.html",
+      "bytes": 6009,
+      "sha256": "3fe12d46fd97b82a76e2335b2d889825f0d47136af25441889127d994527ae24"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 984,
+      "sha256": "070a064600b805bdde8c9d698025f0e5ab3cd042f2d8c40c25dcb140959e7e4a"
+    }
+  ],
+  "embedded_screenshots": [
+    {
+      "id": "install",
+      "caption": "本机首次设置：权限页面",
+      "bytes": 352406,
+      "sha256": "2ce2d09cde51f77122615fd29ec3983be80a8951534328b76a682cf9e3728b97",
+      "availability": "embedded-in-index.html"
+    },
+    {
+      "id": "qa",
+      "caption": "真实应用：日期问题、来源与实时增强状态",
+      "bytes": 279666,
+      "sha256": "2e54dfb3b8782eebef5dc2e9c7cb4eb18ee3480a6edac115694ef93098041c4e",
+      "availability": "embedded-in-index.html"
+    },
+    {
+      "id": "notes",
+      "caption": "真实应用：增强笔记与保留的无证据条目",
+      "bytes": 365713,
+      "sha256": "7d4b4120296db983f36d05c0069bae5e77233adb13100bb33f0f5f344852a339",
+      "availability": "embedded-in-index.html"
+    },
+    {
+      "id": "before",
+      "caption": "长段对照：停止前只有临时转写前缀",
+      "bytes": 219978,
+      "sha256": "6ddea586945777357308bf349b736d30a57ec0694aa94bc58eba67df0f10e732",
+      "availability": "embedded-in-index.html"
+    },
+    {
+      "id": "after",
+      "caption": "加停顿对照：停止后转写变空",
+      "bytes": 197228,
+      "sha256": "df6525000b25ee6e7d6afa09d341f8d4d4f7e39549408ba9010ce49e55fac0c9",
+      "availability": "embedded-in-index.html"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第二轮：Ghidra 与局部恢复</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第二轮：Ghidra 与局部恢复</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+Foresight 深入分析记录（第二轮）
+
+完成的增量：
+- Ghidra 12.1.4 官方压缩包 SHA-256 已验证：ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db。
+- 从该版本源码编译 arm64 反编译器；REA doctor 的 Ghidra 检查 healthy=true。
+- 发现 223 条 Dart 模块路径字符串，已按功能保存 feature-map.json。
+- 提取 7 组完整内嵌提示词，保存文件偏移、长度和 SHA-256。
+- REA/Ghidra 全量导入达到 1200000 ms 上限，未能建立可查询的深层分析会话；close_binary 成功，导入进程已退出。
+- 补充使用 Ghidra -noanalysis，在 REA 第一轮符号地址上手动反汇编和反编译两个入口，二者 decompileCompleted=true；这是补充局部分析，不是 REA 默认全量分析的成功结果。
+
+笔记增强提示词中可直接观察到的规则：
+速记项通过 excerpt_refs 关联特定转写片段；一项输出一个 Markdown bullet，保持顺序。只使用对应片段，不凭空补充事实；用户写出的名称、缩写和大小写优先于可能误识别的转写；无匹配片段时整理原笔记；已有 previous_enhanced 时只补新增相关事实；完整笔记不应被大幅改写。
+这反映提示词设计意图，不等于已验证的运行效果。
+
+会议问答提示词：
+区分事实查询与寒暄；上下文内答案需给 Source:N 引用；某个模板在上下文不足时产生 google_search 工具调用。尚未追踪网页搜索开关如何选择模板或阻止工具，不能据此断言每次问答都会联网。
+
+会议结束逻辑候选（从嵌入日志读取）：
+到时结束询问、已过期直接停止、过旧通知跳过、无语音超时、休眠及唤醒恢复。日志中出现通知过期 15m 和录音提醒 30m，但没有对这些判断代码建立调用链，不能把日志线索当作全部阈值和规则。
+
+证据分类：
+resources/prompts/ 和 evidence/*-candidates.txt 是普通二进制字节/字符串读取，非 REA 反编译证据。
+deep-evidence/ 保存 REA Ghidra 工具结果和生命周期记录。
+尚未读取用户数据库、启动新录音或修改 Foresight。
+
+局部函数分析结果：
+音频 Flutter MethodCall 入口：0x10037dcf4，已恢复函数体 0x10037dcf4–0x100380327 的汇编和 1427 行伪代码。识别到 startRecording、stopRecording、麦克风/系统音频/通知权限检查与请求、getAvailableMicrophones、selectMicrophone、setEchoCancellationEnabled、isEchoCancellationEnabled、setInactivityTimeout、采样率和时间窗口设置，以及播放音频/TTS 的分支。20 个命令是本轮匹配出的集合，未声称覆盖整个接口。Swift 大字符串从带标记的指针按 +32 候选偏移定位，按比较中的声明长度读取；小字符串从立即数解码。
+回声消除存在原生命令，不代表默认启用或真实效果已验证。
+
+流式转写引擎创建：0x101239380，函数体 0x101239380–0x10123a067，669 行伪代码。可见 sample_rate_hz &gt; 0、IsStreamingSupported(model_type) 和 chunk_size 可整除性等校验文本及相关错误路径。确切 ASR 权重身份、实际运行配置与完整流水线仍未确立。
+
+局部覆盖限制：
+未做全程序自动分析，Swift 类型和间接调用不完整；伪代码存在不可达块移除与重叠符号警告，不能当成原始源码或执行效果验证。文件偏移、命令映射、函数状态和汇编均留档于 bounded-evidence/。
+
+本机模型文件：主模型约 3.408 GiB，4 个辅助模型共 800.815 MiB。只列文件元数据和头部，未读取会议数据库。尺寸对应安装页面，不证明四个辅助文件与任务的逐一对应关系。
+
+下一轮仍需解决：Dart 业务调用链、模型下载 URL/校验与重试、查询检测阈值、会议停止分支的确切条件。当前仅凭模块名、日志和提示词不能闭合这些问题。
+</pre>
+</html>

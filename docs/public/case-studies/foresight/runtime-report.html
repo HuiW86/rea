@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第六轮：实际验证</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第六轮：实际验证</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+# Foresight 补充分析与实际验证
+
+日期：2026-10-11。应用版本、主程序哈希与前一轮一致。本轮实际操作了已安装的应用，播放固定合成音频，输入速记，并保存屏幕与可访问性状态；没有替换模型、修改程序或注入返回结果。
+
+## 结论
+
+核心编排已补齐，且完成一次真实应用验证。英文转写、问题自动识别与回答、速记增强、短句停止后保留均实际出现。但长段输入的完整转写未通过，中文样本也未通过。不能把这轮结果写成“全部功能正常”或“中文可直接复用”。
+
+## 新补齐的静态机制
+
+### 音频与 VAD
+
+- `AudioCapture.setSampleRate` 发给原生通道的值是 **48,000 Hz**：指令中的 `0x17700` 为 Dart Smi 编码，解码后是 48,000，而非 96,000。
+- `LiteRtLmSpeechProcessorOptions.sampleRateHz` 当前固化设置为 **24,000 Hz**：`0xbb80` 是 Smi 编码，解码后为 24,000。不能把捕获层与语音处理层的采样率合并描述成一个参数。
+- createProcessor 显式开启 VAD、streamingMode；enableInterimResults 由调用参数传入。共享 setter 的符号名可能来自其他 protobuf 类，须按字段索引与消息元数据识别。
+- 原生 `VadSegmenter.MaybeSetupResampler` 在输入不是 24,000 Hz 时准备重采样器。
+- 原生 `VadSegmenterOptions` 默认值：start_trigger_duration_ms=50、end_trigger_duration_ms=1000、lookahead_duration_ms=200、min_onset_threshold=0.5、max_offset_threshold=0.5。这组值来自 native 构造/Clear、protobuf 描述符以及 FromProto 的字段布局交叉核对。
+- 这组是原生默认值；应用可以通过 advancedOptions 覆盖。追到的 createProcessor 构造了 advancedOptions，但没有给这条路径写入自定义 VAD 参数。捕获层到处理层的完整重采样桥接及全部备用 engine 分支，仍不能仅用这几个入口宣布已实测闭合。
+
+主要证据：`final-static-evidence/AudioCapture.setSampleRate.asm.txt`（0x1009f038c）、`_LiteRtLmSpeechProcessorOptions.sampleRateHz=.asm.txt`（0x1006f1818）、`native-vad-defaults.asm.txt`（0x101250e8c/0x101251084）、`vad-descriptor.bin`、`…VadSegmenter19MaybeSetupResamplerEv.asm.txt`（0x101243cb8）。
+
+### 问题替换、去重与过期
+
+`PrefixStreamFilter.processQuery` 复制当前问题状态，在 `compute(_processQueryIsolated)` 后用返回的状态替换本地状态。
+
+- 规范化：去除非字母/数字/空白字符，trim，连续空白压成单个空格，建立 wordSet。
+- 维护时间窗口；构造时 `0x4e20` 是 Smi 编码，解码为 **10,000 毫秒**。过期记录被清理，不是永久去重。
+- 双向检查 startsWith：处理不完整问句逐渐扩展，以及新输入退化成旧问句前缀的情况。
+- 三个相似度策略依次参与判断：JaccardIndexStrategy（阈值 **0.7**）、TokenSetRatioStrategy（**0.8**）、PartialRatioStrategy（**0.9**）。Jaccard 是词集合交并比，后两者调用 Levenshtein 计算；不是大模型语义相似度。
+- 收集被替代的旧 key，去重后移除，并返回保留/淘汰的问题及更新后的状态。上层再生成 obsoleteQueryIds，UI 应据此撤下旧卡片。
+- 前一轮确认的 TextDeduplicator 是另一层 **5 秒 hash 去重**；这与 10 秒的前缀/近似问题状态窗口不同。
+
+证据：`_processQueryIsolated_(#2).asm.txt`（0x1009f1ec8）、`new_PrefixStreamFilter.asm.txt`（0x1009edd10）、`_processQueryIsolated.&lt;anonymous_closure&gt;.asm.txt`（0x1009f2870）、三个 `*Strategy.isSimilar.asm.txt`。
+
+### 实时笔记增强调度
+
+现在已定位 UI 调度层，不再只停在 NotesEnhancer 本体。
+
+- `_onShorthandChanged` 同步速记条目、标记过时映射、安排保存；保存的等待是 **1 秒**。
+- 编辑等待的增强 timer 使用 Duration(60,000,000 微秒)，即 **60 秒**；再次编辑会取消旧 timer 再安排。
+- 换行/回车相关路径可立即调用 `_runLiveEnhancement`；日志将触发标记为 `enter_key`。
+- `_onTranscriptChange` 在实时增强开启、速记有意义、没有相关 timer 等条件下安排 **60 秒** timer。它不是每个字幕事件立即重写全部笔记。
+- `_runLiveEnhancement` 有运行中与待处理状态：正在生成时记录待处理请求，结束后检查是否需要继续；有 on-demand、targetBulletIndices、updateExisting 参数。
+- 转写来源可以是 active_session，也可以从 eventId 查询；生成流的状态文案单独处理，正文经清理后写进增强区域。完成后更新条目映射并保存笔记。
+- 一般编辑、回车和转写更新分别留下 `debounce`、`enter_key`、`transcript_update` 标记。
+
+证据：`MeetingTabsViewState._onShorthandChanged_(#2).asm.txt`（0x100aa6d00）、`_scheduleSave.asm.txt`（0x1006eab20）、`_onTranscriptChange.asm.txt`（0x100a89c44）、`_runLiveEnhancement.asm.txt`（0x100a4b74c）。
+
+## 本轮实际验证
+
+### 基线与输入
+
+测试复用了之前两场本地测试记录，真正的本轮内容从 **19:09** 的转写段开始；旧段不纳入验收。新建入口没有产生新的可观察记录，因此不能把本轮称为全新干净会议。UI 计时器含历史累计时间，不能拿它当本轮运行时间或推理延迟。
+
+通过系统播放 macOS 生成的合成音频，Foresight 同时具有麦克风/系统音频来源，未做单一路由隔离：
+
+| 输入 | 时长 | 关键内容 |
+|---|---:|---|
+| english-input.aiff | 26.293 秒 | Blue Lantern，next Friday，Alice demo，Bob budget $12,000，两次重复 deadline 问题，demo 负责人问题，末尾校验短语 |
+| chinese-input.aiff | 22.847 秒 | 蓝灯笼，小林/小王，一万两千元，日期/负责人问题，中文校验短语 |
+| final-phrase.aiff | 短句 | The final test phrase is silver maple forty two. |
+
+速记写入最终在屏幕上表现为：`pilot next Friday- pilot next Fri`、`Alice demo`、`- Bob budget 12k`、`- no evidence: venue TBD`。原本计划的四条速记因编辑器自动项目符号与选择行为出现了前缀/重复文本，报告以实际屏幕输入为准，不伪装成严格格式夹具。
+
+### 结果
+
+| 命题 | 实际结果 | 结论范围 |
+|---|---|---|
+| 合成英文进入实时字幕 | 实际出现完整项目背景、日期、Alice/Bob、预算 | 通过本次样本的前半段；没有精确量化时延 |
+| 长段英文完整保存 | 停止后没有看到整段末尾；第一次 deadline 仅在临时文本出现，后来从该字幕视图消失；demo 问题和长段校验短语未保存 | **未通过**；采集、排队、推理或临时结果提交的具体根因未定位 |
+| 自动问题检测与回答 | 出现 What is the deadline for the pilot launch?；回答 next Friday，来源 Current Meeting Transcript | 通过这一个实际问答 |
+| 重复问句只显示一张卡 | 观察到一张 deadline 卡 | 有限观察；长段后半段未完整转写，不能单凭一张卡证明两次输入都被检测后成功去重 |
+| 中文样本 | 出现 I will put / in your / I tell you what kind of / sometimes 等英文碎片，没有对应中文内容 | **未通过**；不等同于证明所有中文模型/所有配置都不支持中文 |
+| 笔记结合转写增强 | 补出 Blue Lantern、next Friday、Alice 职责、Bob 审核预算及 $12,000 | 通过本次四条速记；生成历经多次观察，未给出精确计时 |
+| 无证据笔记保护 | no evidence: venue TBD 原样保留，没有编出地点 | 通过这一项；不是全面的幻觉检测验收 |
+| 短句停止后保留 | 重新播放单独短句后停止，最终保留 The final test phrase is Silver Maple 42. | 通过此短句；不能据此撤销长段丢失结果 |
+| 录音收尾 | 最终界面显示 Start transcribing | 已停止，没有留下后台测试录音 |
+
+截图：`runtime-evidence/02-question-and-live-enhancement.png`、`03-chinese-and-english-transcript.png`、`04-enhanced-notes-and-stopped-transcript.png`、`05-final-phrase-after-stop.png`。可访问性状态另存 `04-ax-state.txt`、`05-final-ax-state.txt`。屏幕截图与 AX 的互补内容用于判断，AX 对富文本与增强结果不完整，不能把未出现在 AX 的文字当成未生成。
+
+## 后续模仿时采用什么
+
+1. 保留三条服务与调度的分工、临时/最终字幕、问题新增/淘汰事件、逐条有证据的增强及原文回退。
+2. 为中文重新选 ASR 和问题检测方案，并用中文稳定窗口取代直接套用空白词计数。
+3. 先把“输入音频→收到样本→排队→模型结果→final 提交”逐段计数和定位；长段完整性作为门槛，不能只验前几句。
+4. 增强任务要显示可取消进度、保护编辑版本，保留来源与原文；60 秒调度可以借鉴，但应独立测试产品响应体验。
+5. 合成样本覆盖到的正常路径已实际运行；模型缺项回退的代码路径已分析，但本轮没有故意操纵模型输出来触发缺项。断网、模型损坏、连续运行数小时、不同硬件、过期会议 15 分钟边界，以及完全隔离的音频路由仍属于额外压力/故障验证。
+
+## 完成边界
+
+已完成当前关注的主要剩余编排分析和一轮实际运行验证，并保留反例。本次没有取得闭源模型的训练机制或原始源码，也没有承诺枚举所有内部实现分支。发现的长段丢失与中文错误是后续模仿需要优先规避的真实问题；若要进一步定位 Foresight 内部故障，需另做受控音频路由和运行时消息/队列观测，不能从静态反编译结果直接编造根因。
+</pre>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第四轮：模型下载</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第四轮：模型下载</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+# Foresight 下载机制：第四轮分析
+
+对象：Foresight 1.0.0 / build 1.0.0.28.20261005 / macOS arm64。
+结论基于应用本体的带符号汇编、解析后的 Dart 对象池、限定范围伪代码，以及少量真实 HTTP Range 探测。没有修改应用或已下载模型。
+
+## 1. 下载地址与标识
+
+GET https://odml.pa.googleapis.com/v1/medias/foresight/{blobId}:download?alt=media&amp;key=&lt;APP_API_KEY&gt;
+Range: bytes={currentOffset}-{endInclusive}
+
+证据：ModelDownloader._buildDownloadUrl 0x10066d500，把 PP+0x19a20 的 /v1/medias/foresight、PP+0xf18 的 /、输入 blob 标识、PP+0x19a28 的 :download 拼接；查询参数由 alt/media 与 key/实例字段组成。PP+0x109f8 是 odml.pa.googleapis.com；_Uri._makeHttpUri 0x10066d8e4 载入 https。
+OdmlService.downloadMediaInParallel 0x10066c8a8 构造下载器并注入打包的应用 key。报告及导出文件已隐藏 key，不需要展示凭证值即可说明协议。
+AssetManager._downloadModel 从 OnDeviceModelMetadata.blobId 取 basename 传给下载服务；OdmlService 还去掉输入的开头斜杠。这是动态模型元数据驱动，不是源码固定五个完整 URL。
+
+可用性实测：以本机五个旧模型文件名作为候选 blob 标识，各发一次 Range bytes=0-0 请求，全部返回 404。另对一个移除扩展名的候选做一次探测，也返回 NOT_FOUND。没有下载完整模型，没有证明当前服务器已下架模型，也没有证明候选本地文件名就是当前服务端 blobId。应将“地址构造已确认”与“当前可用直链未确认”分开。
+实测记录：download-evidence/range-probe.json、range-probe-bare-id.json。
+
+## 2. 分块与数据流
+
+AssetManager 计算并行分块数量：clamp(ceil(expectedBytes / 838860800), 1, 8)，即按 800 MiB 规模估算并行数，上限 8。它把并行数传给 downloadMediaInParallel；ModelDownloader 分配区间并以 Future.wait 等待下载任务。
+按本机 3,659,530,240 字节主模型尺寸，这个公式得到 5；这是代码推导，不是抓到一次真实 5 路网络下载。
+模型类型配置允许且体积至少 1 GiB 的路径可写入 .downloading 临时文件；另一条路径先收集到内存，再保存。具体类型开关应以模型配置为准。
+下载器使用 GET 与 Range 头。每收到数据后更新捕获上下文中的 currentOffset（0x10066e890–0x10066e8a8）；同一次任务发生可重试错误后，下一次从该偏移继续请求，避免从分块开头重新取已写入部分。
+写文件时使用 BasicLock.synchronized；临时文件先预分配到期望长度。成功后的 AssetManager 路径将临时文件改名为最终文件，部分模型保存路径还可能进行本地加密。
+未发现跨应用重启持久保存分块进度的证据，不应将同一任务内重试续传宣传成跨重启断点续传。
+
+## 3. 重试参数与精确条件
+
+在下载器实际引用的 RetryOptions 实例中：
+- delayFactor = 500,000 微秒 = 500 毫秒。
+- randomizationFactor = 0.25。
+- maxDelay = 10,000,000 微秒 = 10 秒。
+- maxAttempts = 5，含第一次请求，因此最多追加 4 次重试。
+
+对象位于 PP+0x198f8，ref 0x26069；OdmlService 和 ChunkDownloader 两处都引用这一实例。RetryOptions.retry 0x10066ddf0 的次数比较也直接是 5，独立佐证配置解析。
+第 k 次失败后的等待近似为 min(500ms × 2^min(k,31) × (1 + 0.25 × (2u−1)), 10s)，u 为 [0,1) 随机数，k 从 1 开始。
+因此四次等待名义值 1、2、4、8 秒，对应约 0.75–1.25、1.5–2.5、3–5、6–10 秒。毫秒/微秒取整可能产生小量边界差异。
+
+_isRetryableError 按 class ID 接受 ClientException 族（1517–1519，对应 ClientException、_ClientSocketException、RequestAbortedException）、TimeoutException（6128）和 SocketException（5529）。
+HTTP 错误仅将 429、500、502、503、504 转成可重试 ClientException；其他非成功状态抛 NonRetryableDownloadException。不能泛称“所有 5xx 都会重试”，例如 501 不在这张表内。
+状态码 206 为正常分块响应。200 的允许条件按原分块范围判断（原始起点 0、终点 total−1）；局部分块收到 200 会走 NonRetryableDownloadException；此处检查的是原始分块起点，不能据此断言已对重试时的新起点严格校验。
+
+## 4. 校验机制：确认了什么，没有确认什么
+
+已确认的检查：
+- 下载参数检查有非正 content length 的错误路径。
+- HTTP 状态与是否允许 200 的 Range 语义检查。
+- 内存保存路径检查数据非空、路径非空和数组长度与元数据期望大小相等。
+- 流式落盘路径检查临时文件存在、File.length 与模型元数据期望大小相等；不等则错误路径，不走成功改名。
+- 完成后通过临时文件改名进入正式路径；失败路径有清理处理。
+
+在已追踪的模型下载、分块接收、内存保存、流式完成和控制器链路中，未找到把下载内容摘要与预期 SHA-256/MD5/签名进行比较的调用。这里最准确的结论是“已确认长度/状态检查，未发现模型内容哈希或签名校验”，不是声称应用内不存在任何密码学代码。
+包内确有 crypto、哈希、加密与签名相关字符串，但用于其他路径的存在不能证明模型下载校验。AssetManager.downloadModelsByType 中的 getHash 是用于模型类型键/Map 操作，也不是文件摘要校验。
+
+长度检查的实质限制：ModelDownloader 会先将磁盘临时文件 truncate 到期望长度，内存路径也会预分配目标大小。因此，仅看最终长度不能排除内容缺失、未写区间或同长度损坏。当前没有针对实际应用做短流/损坏数据注入测试，不能把这个静态疑点写成已复现缺陷；后续若仿做，应增加每块实际接收字节数检查与最终哈希验证。
+Range 的 Content-Range 头是否有独立严格比对，在该分块回调里尚未找到；不能把接受 206 等同于验证了响应区间头的所有字段。
+
+## 5. 解析工具的可信边界
+
+Flutter 引擎内嵌版本字符串：3.14.0-294.0.dev，时间 2026-10-01；快照 hash 为 e3b703b387b759dc21a3cbe8aa329f7a，与引擎内字符串一致。
+使用 dae v0.1.13 原有 3.14 beta profile，依据对应 Dart SDK 的 class_id.h，将新增 LocalVarDescriptor 引起的 CID 偏移调整一位；并按官方 app_snapshot.cc/raw_object.h 补充 LibraryPrefix FullAOT 布局。没有重写解析器。修改后的 profile 保持 experimental 标记。
+解析器报告 34,342 个指令表项、42,446 个对象池项；info 阶段 warnings=0 不等于所有高级类型均已正确恢复。对象池部分类型/字段展示仍不完整。
+额外将下载库 19 个函数地址与独立 nm 符号表交叉核对，19/19 地址存在并对应下载相关函数。关键 URL 字符串还与原始二进制可见字符串一致；重试次数、状态码、浮动比例直接以汇编核对。
+所以本报告使用经过交叉核对的具体字段/调用，不宣称恢复了完整原始 Dart 源码。
+
+SDK 依据：
+https://github.com/dart-lang/sdk/blob/3.14.0-294.0.dev/runtime/vm/class_id.h
+https://github.com/dart-lang/sdk/blob/3.14.0-294.0.dev/runtime/vm/app_snapshot.cc
+https://github.com/dart-lang/sdk/blob/3.14.0-294.0.dev/runtime/vm/raw_object.h
+工具：https://github.com/ejfkdev/dae
+
+主要证据目录：download-evidence/
+- *.asm.txt.annotated.txt：独立汇编加对象池注释。
+- downloader-library.dart / asset-manager.dart：实验性伪代码，不能当作原始源码。
+- retry-objects.txt：实际重试配置对象。
+- symbol-crosscheck.json：19 个函数地址交叉核对。
+- dart-foresight-profile.json：可复用的实验性解析配置。
+- range-probe*.json：真实端点探测，当前均 404。
+</pre>
+</html>

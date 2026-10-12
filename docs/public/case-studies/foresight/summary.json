@@ -1,0 +1,30 @@
+{
+  "rea_version": "6.4.0",
+  "runtime": "Node 24.19.0",
+  "target": "/Applications/Foresight.app",
+  "main_sha256": "fa98b856bfbe9b40cdebfb9f975f7867ec5c0a3ca75b81214a096a60b6db8326",
+  "evidence_ids": {
+    "inspect-plist.json": "ev_70a6a0565d647b54a808097b3dc58ffbaa7aadecb294b59bb82602f193b3ed22",
+    "inspect-artifact.json": "ev_319da002f29c099436f1aa9aa8e1e82439eeb94df13a8081d7bd9ee61fa6473f",
+    "inspect-macho.json": "ev_21e574e52ade626be8348049b2c66e10587529d69e9a6d1164cfb2c44ddfcbee",
+    "apple-application-graph.json": "ev_052b679e703dc84fcc96df46b3c675abccf6b1f2cead6529d0e8ba36b38c7056",
+    "trace-dylib-resolution.json": "ev_ab95fd9674a71bb353944af1cb7413e679a3fda30ea03d4fe226fac6929d3540",
+    "inspect-signature.json": "ev_4de9d66948204694cf7e0de230682e2c0e6810147b6fe68ef40ae54ad009fea1"
+  },
+  "coverage": {
+    "status": "complete-within-inventory",
+    "inventory_complete": true
+  },
+  "component_counts": {
+    "bundle_metadata": 2,
+    "executables": 7,
+    "frameworks": 9,
+    "native_libraries": 5,
+    "javascript": 0,
+    "signing": 3,
+    "privileged_helpers": 0,
+    "launchd_plists": 0,
+    "helpers": 0
+  },
+  "publication_scope": "REA inventory summary; original raw results retained locally, not included in this public case."
+}

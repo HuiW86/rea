@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第五轮：核心流水线</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第五轮：核心流水线</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+# Foresight：实时转写、问题检测与笔记增强
+
+分析日期：2026-10-11。对象：本机 Foresight 1.0.0 / 1.0.0.28.20261005，arm64。
+主程序 SHA-256：`fa98b856bfbe9b40cdebfb9f975f7867ec5c0a3ca75b81214a096a60b6db8326`。
+
+本文接续 REA 分析，依据保留的 Dart 符号、原始 ARM64 指令、对象池和应用内提示词交叉判断。DAE 使用实验性 SDK profile，输出是伪代码，不是开源源码；部分共享 getter 的符号会误导，因此不据其名字单独推断语义。本轮没有新录音、没有读取私人会议数据库，没有测量实际时延。下面的“确认”均指静态实现证据，而非运行验收。
+
+## 总体结构
+
+```mermaid
+flowchart TD
+ A[麦克风 / 系统音频] --&gt; B[按来源缓冲 PCM]
+ B --&gt; C[独立 isolate：语音模型与请求队列]
+ C --&gt; D[临时 / 最终转写]
+ D --&gt; E[清洗、分来源缓冲、UI 广播]
+ E --&gt; F[滑动上下文与文本去重]
+ F --&gt; G[专用问题检测模型]
+ G --&gt; H[问题解析、前缀过滤、去重与替换]
+ H --&gt; I[问题事件广播]
+ E --&gt; J[转写分块与向量缓存]
+ K[用户速记及已有增强结果] --&gt; L[逐条匹配相关转写]
+ J --&gt; L
+ L --&gt; M[按片段重叠与预算组批]
+ M --&gt; N[主语言模型流式增强]
+ N --&gt; O[逐条解析、原位更新、缺项回退]
+```
+
+这不是一个模型同时完成三个任务。转写、问题检测、笔记生成有不同的服务入口；笔记还依赖向量检索。问题出现后的回答生成是另一条推理链，不能将“检测到问题”当成“回答已完成”。
+
+## 1. 实时转写
+
+### 已确认的调用流程
+
+1. `TranscriptManager.start → _initialize` 建立捕获源、音量订阅、转写服务、问题检测器和去重器。初始化设置了 **3 秒音频缓冲窗口**；这不能解释成字幕固定每 3 秒更新。
+2. `OnDeviceSpeechTranscriptionService.initialize → _TranscriptionServiceIsolate._startIsolate` 启动独立处理环境。worker 创建 engine / speech processor，并有 prewarm 和 biasing dictionary 调用。
+3. `sendAudio` 在服务尚未就绪等分支保存 pending audio；就绪后 `_flushPendingAudio → _sendAudioToIsolate`。worker 请求队列通过 `_maybeProcessNextRequest` 取队首，处理音频或 flush 请求；音频请求有 `getMergedAudioSamples`。
+4. worker 将 PCM16 转 Float32，选择相应处理路径，将结果或失败消息发回主 isolate；可见转写失败、flush 失败、初始化失败各自的错误处理和销毁 engine 路径。
+5. `TranscriptManager.processRawTranscript` 清理 UTF-8、过滤垃圾转写、清洗正文，更新 `TranscriptBuffer` 并广播。它保留音频位置，并可以提取对应 PCM 片段，供下游上下文使用。
+6. `TranscriptBuffer` 分开维护历史段和按来源的临时文本。最终结果进入历史并清除相应临时项；临时结果更新对应来源，UI 通过 `getUiTranscript` 取合成视图。
+7. 历史合并有明确条件：**相同来源，且距离上一段记录时间小于 2 秒**。这是到达/记录时间的比较，不能直接等同语音 VAD 的 2 秒静音阈值。存在 `pruneHistory`，并非无限增长。
+8. 停止时 `endTranscription` 为流排入 flush 请求、等待结果（有 timeout 路径）、发出结果/错误、关闭流，并按参数决定是否 dispose。`TranscriptManager.flushPendingInterims` 也处理未结束的临时字幕。停止不是直接丢弃缓冲。
+
+### 模型边界
+
+转写服务构造中可见 `LLM_MODEL_TYPE_GEMMA4_200M_USM_75M_TOKENIZER_EN_16K`。该枚举说明模型配置名称，**不证明中文支持，也不证明当前每条音频走此默认分支**。createEngine 有 LiteRT-LM 与另一 LLM engine 分支；具体选择取决于配置。SpeechProcessor 有采样率与 VAD 配置入口，但这里没有把未完整追清的原生重采样、VAD 阈值及最大语段长度写成确定参数。
+
+证据入口：`pipeline-evidence/TranscriptManager._initialize.asm.txt`（0x1009ed658）；`_TranscriptionServiceIsolate._isolateEntry_(#2).asm.txt`（0x1006edcf0）；`_maybeProcessNextRequest`（0x1006f4034）；`TranscriptBuffer.addTranscriptionResult`（0x1006f63f0）；`OnDeviceSpeechTranscriptionService.endTranscription`（0x1006f4a8c）。
+
+## 2. 问题检测
+
+### 输入与触发
+
+`processRawTranscript → _getTranscriptAndAudioForQueryDetection → TextDeduplicator.processText → QueryDetectorOnDevice.detectQuery → QueryDispatcher.dispatchQueries`。
+
+- 上游确实整理文本和音频：连接历史文本、拼接 PCM、去静音、加 WAV 头。
+- 但当前追到的 **QueryDetectorOnDevice 模型调用是文本输入**，不是把上述 WAV 送入问题检测模型。音频会伴随其他上下文/事件保存使用，不能仅凭函数名声称它做多模态问题检测。
+- 临时转写路径先检查词数；不超过 5 词时跳过。检测器进一步把临时文本尾部 **5 词裁掉**，最终转写不做这一裁尾。词的划分使用空白正则 `\s+`，不是中文字数。
+- 检测器实际取裁剪后文本的**最后最多 200 词**。日志虽称 batch generation，当前这一段代码是取尾部窗口，不能据日志推断它并行扫描整场会议。
+- `TextDeduplicator` 先规范化文本、算 hash，再查时间表；相同 hash 距上次出现 **小于 5000 毫秒**时返回重复并刷新时间。管理器对临时结果利用这个返回值抑制检测；最终结果有绕过该临时抑制的分支。
+- 检测器不存在时调用 `_initQueryDetector` 并结束本次处理；模型没有初始化时检测器返回空列表。初始化失败会记录错误，不会凭空生成问题。
+
+### 模型调用与输出处理
+
+1. 通过 `AssetManager.queryDetectorModelPath` 获取独立模型，`TextGenerator.create` 初始化。
+2. `Pool.withResource` 包住生成操作；文本末尾追加 ` &lt;ctrl1&gt;`，调用 `TextGenerator.generate`。资源池容量尚未确认。
+3. 输出经 UTF-8 清理、`splitIntoQuestions` 拆分、反向遍历；过滤空结果和以 `&gt;&gt;` 开头的项，并做本轮重复项检查。
+4. 构建带时间的 `QueryEntity`。manager 检出问题后推进历史游标，避免同一上下文一直重复消费。
+5. `QueryDispatcher` 有串行完成等待逻辑，内部再次调用文本去重，并调用 `PrefixStreamFilter.processQuery`；会维护/移除旧问题。下游 `_onQueryDispatched` 广播的是 **newQueries 与 obsoleteQueryIds**，所以 UI 应支持替换/撤下问题，而非一律追加。
+6. `detectQuery` 有异常日志和受参数控制的等待。manager 为临时文本传入 1 秒 Duration、最终文本传 0；该等待在生成之后/异常收尾路径，**不是已经证实的每秒定时扫描器，也不是下载式重试策略**。
+
+证据入口：`TranscriptManager.processRawTranscript`（0x1009f0b94，特别是0x1009f1318–0x1009f147c）；`QueryDetectorOnDevice.detectQuery`（0x1009f2a18）；其生成 closure #2（0x1009f3620）；`TextDeduplicator.processText`（0x1009f3918）；`QueryDispatcher._dispatchQueriesInternal`（0x1009f17ac）；`TranscriptManager._onQueryDispatched`（0x1009f0560）。
+
+### 仍需实测的边界
+
+专用模型是否识别隐含问题、中文效果、问句完整度、连续追问替换效果，无法仅凭这些调用确认。PrefixStreamFilter 的完整匹配规则、问题回答端的自动触发/搜索开关，尚不列为已闭合结论。
+
+## 3. 笔记增强
+
+### 入口和输入
+
+`NotesEnhancer.enhanceStream` 接受 `eventId`、`existingEnhancedBullets`、`isLive`、`targetBulletIndices`、`updateExistingWithTranscript`、`style`、`onActiveIndexChanged` 等参数。
+
+这意味着实现支持会中/会后、指定条目、已有结果再更新和风格选择；**不等于默认每个转写事件都自动重写笔记**，具体 UI 调度周期尚未追清。
+
+流程：
+
+1. **筛选速记。** 按行拆分、清理标记、识别已经增强的行，保留 originalIndex；处理“Potential Important Topics Not In Notes”独立区域。无可增强内容可提前返回。
+2. **准备本地语言模型。** 取得 `InferencePipeline.litertlmService`；服务未就绪时尝试 reset / reinitialize，再取得服务。仍失败则区分“暂未就绪”和“模型未下载”。
+3. **准备转写向量。** `_embeddedTranscriptChunks → TranscriptEmbeddingManager.getEmbeddedChunks`。manager 区分 live/post 缓存，能从 DataStore 加载，会后分支检查完整 embedding；不足时调度分块嵌入。无 event 缓存路径还有 `embedTextWithoutCaching`。底层调用 `RagOrchestrator.computeEmbedding`。
+4. **逐条检索。** 速记与转写块计算 cosine similarity，排序并取相关块。可见 top-k 在 1/2 间选择；其输入计数的完整语义未闭合，因此不在这里强行写成一个确定产品规则。另有向量不可用等回退分支。
+5. **合并组批。** `_clusterScribblesIntoBatches` 优先考虑共享片段并合并片段集合，限制批大小及估算预算。可直接确认估算式：`350 × 唯一片段数 + 50 × 候选速记数 + 300`，上限 2000。它是内部估算单位，**不是对真实 tokenizer 逐字精算，也不是模型完整上下文窗口**。
+6. **构造有引用范围的提示词。** 转写片段使用 `&lt;excerpt id=&quot;E…&quot;&gt;`；每条速记使用 `&lt;item id=&quot;…&quot;&gt;&lt;scribble&gt;…&lt;/scribble&gt;&lt;previous_enhanced&gt;…&lt;/previous_enhanced&gt;&lt;excerpt_refs&gt;…&lt;/excerpt_refs&gt;&lt;/item&gt;`。模型明确知道哪条笔记可以参考哪些片段。
+7. **额外发现遗漏主题。** 有未覆盖片段及 `uncovered_meeting_excerpts` 路径，关键词含 decided、action item、deadline、blocker、risk、budget 等。输出进入独立“未写进笔记的重要话题”区域，不能与用户本来写下的内容混为一谈。筛选分支可见最多两项候选的限制；其模式条件仍需运行验证。
+8. **流式生成。** 创建 LiteRT-LM conversation，调用 `sendMessageStream`，抽取响应文本；持续清理模型标签和 Markdown fence，`parseBatchOutput` 后按原始条目位置更新预览。界面状态依次为 Evaluating notes / Scanning the transcripts / Structuring notes。
+9. **结束与回退。** 最终再解析一次；若返回条目不足，记录缺失索引并用原笔记回退；批处理异常也有回退。清理流迭代器、cancelProcess / close conversation，输出格式化结果。不能让“模型少输出一条”导致用户笔记丢失。
+
+### 提示词约束与程序约束要分开
+
+完整提示词已保存在 `resources/prompts/notes-enhancer.txt`。其中要求：每条输入对应一条输出、保留名字与用户拼写、仅使用绑定的片段、无证据则保持原文、不重写整份会议纪要。这些是模型指令，**不代表已经实现事实核验**。
+
+程序层面能确认的是输入条目映射、引用片段构造、输出解析、缺项回退、资源关闭。未见足够证据支持“所有生成事实均被机器校验”或“自动检测每个幻觉”的说法。
+
+证据入口：`NotesEnhancer.enhanceStream`（0x100a2bd08）；`_clusterScribblesIntoBatches`（0x100a328bc）；`parseBatchOutput`（0x100a31cc0）；`_embeddedTranscriptChunks`（0x100a33384）；`TranscriptEmbeddingManager.getEmbeddedChunks`（0x100905e40）；`_chunkAndEmbed`（0x1009062d4）。
+
+## 后续模仿的实现参考（我们的建议，不是 Foresight 已证实行为）
+
+| 模块 | 建议保留的机制 | 第一批验收案例 |
+|---|---|---|
+| 转写 | 来源、segment ID、时间范围；interim 替换、final 提交；后台队列与 stop-flush | 两路交替说话；临时句反复改写；结束时最后一句不丢 |
+| 问题检测 | 小模型与主模型分离；稳定文本窗口、去重；问题新增/替换/撤下事件 | 同一句连续回传；问题后半句补全；一分钟后重新提问 |
+| 中文适配 | 用语言适配的切词/字符稳定窗口替换硬套“5/200 个空白词” | 无空格中文；中英混说；短问句 |
+| 笔记增强 | 用户条目 ID、原文、已有增强、片段引用；按条生成；缺项回退 | 模型输出少项/多项/乱序；无相关证据；保留专有名词 |
+| 遗漏主题 | 单独的建议区域，由用户决定采纳 | 新建议不能偷偷变成用户原始笔记 |
+| 生命周期 | 任务带 meeting ID 与版本；取消后拒收旧结果；保留原笔记可撤销 | 生成中切会议、修改原文、取消/重试，不串会不覆盖新编辑 |
+
+先复用已有录音、ASR、向量检索和本地推理能力，再补齐这层编排；不要为界面相似重建整套模型运行时。实际实施前按项目约定另做候选扫描。Foresight 的英语词窗口、专有问题模型、提示词格式应当作为参考，而非未经中文验证直接照搬。
+
+## 交付与证据边界
+
+- 本轮保存了 6 类 DAE 伪代码及 188 份按符号导出的汇编文件；汇编含共享/别名函数，数量不代表 188 个独立业务功能。
+- `pipeline-evidence/manifest.json` 保存新增证据的大小与 SHA-256。
+- 之前的模型下载分析、停止会议分析和提示词均保留；本报告不覆盖或撤销其限定条件。
+- 尚未闭合：原生 VAD/重采样参数、实时字幕频率、中文准确率、问题检测池容量、前缀替换完整规则、增强自动调度周期及全部检索回退条件。进入模仿开发前，用人工合成音频与固定速记夹具验证这些边界。
+</pre>
+</html>

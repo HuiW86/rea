@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第一轮：REA 清单</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第一轮：REA 清单</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+Foresight · REA 首轮分析
+日期：2026-10-11
+工具：REA 6.4.0，Node 24.19.0，独立安装在本目录 tooling。
+未执行 REA setup，未更改全局 MCP 配置。
+目标：/Applications/Foresight.app，版本 1.0.0 (1.0.0.28.20261005)。
+范围：只读静态分析，未更改应用、启动录音或读取个人会议数据库。
+
+已完成六项 REA 分析，均 ok=true：
+应用包清单、Mach-O 结构、Info.plist、签名与权限、动态库解析、Apple 应用结构投影。
+投影覆盖：complete-within-inventory。这只代表清单范围完整，不代表完整逆向业务。
+
+确认的静态事实：
+1. 主程序 arm64；最低 macOS 14.2；Google LLC 签名。
+2. 包含并依赖 FlutterMacOS.framework；包内另有 LiteRT、Metal/WebGPU 加速器及 sampler 库。
+3. 主程序符号包含 AudioCapturePlugin、FlutterMethodChannel/EventChannel、SpeechPipeline、VadSegmenter、sqlite3_vector_init、FIRAnalytics、InitEncryptionMacos。
+4. Info.plist 声明麦克风和其他应用音频采集用途；签名权限包含网络客户端、用户选择文件和 Keychain 组。
+
+模型配置（额外普通文件读取，非 REA 解码结果）：
+E2B、E4B、12B 的 minDeviceMemoryInGb 分别为 6、15、30。
+三个模型默认上下文 4096，temperature 0.4，topK 40，topP 0.9，repetitionPenalty 1.05，enableThinking=false。
+E2B/E4B 的 audioBackend=cpu，12B=gpu；三档 visionBackend=gpu。
+这是包内声明，不保证运行时完全沿用；原文件和 SHA-256 保存在 resources/ 与 summary.json。
+
+架构推断：
+Flutter 界面通过原生插件连接音频和本地推理组件。包含语音分段、转写和 SQLite 向量能力，是下一轮调用链追踪的入口。包含 analytics 和 encryption 符号，不证明上报内容、加密范围或调用顺序。
+
+边界与待查：
+未恢复 Dart 业务源码、提示词、会议状态机、实时问答触发规则、检索分块与排序。
+未确定实际语音模型、权重、下载地址或数据库结构。
+未进行运行时调用观察或网络抓包。
+本机未找到 Hopper/Ghidra/IDA；没有安装额外引擎，因此没有函数级伪代码。
+REA 的投影 runtime_families 返回 native，未识别 FlutterMacOS 命名；框架路径、依赖及此前许可界面分别确认 Flutter 组件。
+符号表可能缺失被剥离的符号；静态名称不等于执行证据。
+
+建议下一轮：按模型下载管理、音频到转写、到时停止会议、资料检索四个问题分别追踪。
+
+原始 REA 输出：evidence/
+摘要及 Evidence ID：summary.json
+主程序 SHA-256：fa98b856bfbe9b40cdebfb9f975f7867ec5c0a3ca75b81214a096a60b6db8326
+
+REA Evidence 对照：
+inspect-plist.json → ev_70a6a0565d647b54a808097b3dc58ffbaa7aadecb294b59bb82602f193b3ed22
+inspect-artifact.json → ev_319da002f29c099436f1aa9aa8e1e82439eeb94df13a8081d7bd9ee61fa6473f
+inspect-macho.json → ev_21e574e52ade626be8348049b2c66e10587529d69e9a6d1164cfb2c44ddfcbee
+apple-application-graph.json → ev_052b679e703dc84fcc96df46b3c675abccf6b1f2cead6529d0e8ba36b38c7056
+trace-dylib-resolution.json → ev_ab95fd9674a71bb353944af1cb7413e679a3fda30ea03d4fe226fac6929d3540
+inspect-signature.json → ev_4de9d66948204694cf7e0de230682e2c0e6810147b6fe68ef40ae54ad009fea1
+
+工作流来源：https://github.com/morluto/rea/blob/main/.agents/skills/reverse-engineer-anything/SKILL.md
+</pre>
+</html>

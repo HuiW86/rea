@@ -226,3 +226,10 @@ Reported command values are retained in all cases.
 `verify:macos-bundle` checks the parser against `otool -l` for every traced
 image. It also compares the predicted load order of two process roots with the
 images dyld actually loads (`DYLD_PRINT_LIBRARIES`).
+
+## Worked investigation
+
+The [Foresight case study](./foresight-case-study.md) follows a signed macOS
+Flutter application from REA inventory through bounded native/Dart analysis and
+synthetic meeting playback, including timeouts, transcript loss, and the limits
+of reconstruction readiness.
