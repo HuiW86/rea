@@ -1,0 +1,135 @@
+[
+  {
+    "dae_address": "0x610444",
+    "dae_class": "DownloadTracker",
+    "dae_method": "_anon_closure",
+    "nm_name": "new DownloadTracker.<anonymous closure>",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x61049c",
+    "dae_class": "DownloadTracker",
+    "dae_method": "ctor",
+    "nm_name": "new DownloadTracker",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66ec8c",
+    "dae_class": "DownloadTracker",
+    "dae_method": "getProgress",
+    "nm_name": "DownloadTracker.getProgress",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66ee78",
+    "dae_class": "DownloadTracker",
+    "dae_method": "_updateSpeed",
+    "nm_name": "DownloadTracker._updateSpeed",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66cb48",
+    "dae_class": "ModelDownloader",
+    "dae_method": "download",
+    "nm_name": "ModelDownloader.download",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66d2a8",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_setupFileHandle",
+    "nm_name": "ModelDownloader._setupFileHandle",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66d500",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_buildDownloadUrl",
+    "nm_name": "ModelDownloader._buildDownloadUrl",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66d9e0",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_publishEvent",
+    "nm_name": "ModelDownloader._publishEvent",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66da4c",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_publishEvent",
+    "nm_name": "ModelDownloader._publishEvent (#2)",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66da7c",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_eventController",
+    "nm_name": "ModelDownloader._eventController",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66dac8",
+    "dae_class": "ModelDownloader",
+    "dae_method": "_anon_closure",
+    "nm_name": "ModelDownloader.download.<anonymous closure>",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66dbfc",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "downloadChunk",
+    "nm_name": "ChunkDownloader.downloadChunk",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66e348",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "_anon_closure",
+    "nm_name": "ChunkDownloader.downloadChunk.<anonymous closure>",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66e3e0",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "_isRetryableError",
+    "nm_name": "ChunkDownloader._isRetryableError",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66e45c",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "_anon_closure",
+    "nm_name": "ChunkDownloader.downloadChunk.<anonymous closure> (#2)",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66ef80",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "_writeBlock",
+    "nm_name": "ChunkDownloader._writeBlock",
+    "address_present": true
+  },
+  {
+    "dae_address": "0x66f718",
+    "dae_class": "ChunkDownloader",
+    "dae_method": "_anon_closure",
+    "nm_name": "ChunkDownloader._writeBlock.<anonymous closure>",
+    "address_present": true
+  },
+  {
+    "dae_address": "0xb56ae8",
+    "dae_class": "DownloadProgress",
+    "dae_method": "toString",
+    "nm_name": "DownloadProgress.toString",
+    "address_present": true
+  },
+  {
+    "dae_address": "0xb56d48",
+    "dae_class": "NonRetryableDownloadException",
+    "dae_method": "toString",
+    "nm_name": "NonRetryableDownloadException.toString",
+    "address_present": true
+  }
+]

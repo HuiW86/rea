@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>第七轮：丢失定位与中文适配</title
+  ><style>
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #faf8f2;
+      color: #232925;
+      font: 16px/1.8 system-ui;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: inherit;
+    }
+    a {
+      color: #a8401c;
+    }
+    aside {
+      padding: 16px;
+      border-left: 4px solid #c15a32;
+      background: #f1ece0;
+    }
+  </style>
+  <p>
+    <a href="index.html">← 交互讲解</a> ·
+    <a href="loss-and-chinese-report.html">最终定位报告</a>
+  </p>
+  <h1>第七轮：丢失定位与中文适配</h1>
+  <aside>
+    这是一份按轮次保留的历史报告。早期“尚未确认”可能已被后续报告补齐；最终结论以第七轮及案例概览为准。文中的原始汇编、工具输出、完整提示词及本机工程引用保留在本地原始档案，未全部随公开案例分发。
+  </aside>
+  <pre>
+# 长段丢失定位与中文适配
+
+2026-10-11；Foresight 1.0.0.28.20261005。接续 runtime-report，保留旧反例。本轮没有修改 Foresight 程序或模型，没有修改 MemoryOS 源码；新增的测试文件均在分析目录。
+
+## 定位结论与边界
+
+**确认了一个停止收尾的顺序缺陷，并复现了长段字幕丢失；尚不能把全部长段丢失归结为唯一根因。** 已明确排除“只是 UI 没显示”和“必须编辑笔记才触发”。请求超时、推理积压和最终结果生成之前的音频完整性，仍需更低层运行观测才能逐项定案。
+
+### 已确认的代码顺序
+
+`AudioTranscriptionDetector.startDetecting`：
+
+- 0x1006f7380：取得 `OnDeviceSpeechTranscriptionService.startTranscription` 的结果流。
+- 0x1006f743c–0x1006f7444：订阅该流，保存到对象偏移 `0x2f`。
+- 0x1006f7570、0x1006f75d4–0x1006f75dc：建立并订阅 MultiplexedSpeechStream，保存音频输入订阅到偏移 `0x37`。
+
+`AudioTranscriptionDetector.stopDetecting`：
+
+1. 0x1006f7740：切换停止状态。
+2. 0x1006f7744–0x1006f7788：取出并取消 **转写结果订阅（0x2f）**，等待后置空。
+3. 0x1006f778c–0x1006f77d0：取消音频输入订阅（0x37），等待后置空。
+4. 0x1006f77d8：停止音频捕获。
+5. 0x1006f7808：才调用 `OnDeviceSpeechTranscriptionService.endTranscription`，要求引擎 flush 并等待结果。
+
+**问题在第 2 与第 5 步的顺序：flush 之后发出的最终转写，无法再通过已经取消的结果订阅传给上层。** 内部 engine 完成 flush 不等于 UI、聚合器和存储收到最后一句。
+
+上层 `TranscriptManager.stop` 在 cleanup 前调用一次 `flushPendingInterims`，试图保存当时已经收到的临时内容；这只能处理现有缓冲，覆盖不了仍在 worker 中生成的结果。实测表明该补偿没有保证这两次长段临时字幕被保存。临时结果为什么没有被该补偿保住，尚未逐字段定位；不要伪装成已证实的单一原因。
+
+### 30 秒超时与队列
+
+`OnDeviceSpeechTranscriptionService._sendAudioToIsolate` 有 30 秒 Future.timeout：
+
+- PP 0x176a0 Duration=30,000,000 微秒；调用位置 0x1006fcb60。
+- 错误分支 0x1006fcd34–0x1006fcd3c 判断 TimeoutException（CID 6128），直接跳到返回；其他异常才调用 `_restartEngine`（0x1006fcd48）。
+- 因此，**“超时必然重启引擎”不成立**。超时结束等待，不等同底层任务被取消或音频被补偿重放。
+- worker 维护串行请求队列，按来源/模式合并兼容音频请求；`getMergedAudioSamples` 使用 BytesBuilder 拼接，取出后清空集合。当前代码证据不支持“队列只保存最新块”的说法。
+- 本轮没有拿到该次运行的 TimeoutException 日志，所以超时是一个已确认的失效路径，尚不是本次复现的已确认触发事件。
+
+当前原始程序 stdout/stderr 指向 `/dev/null`，AppLogger.setup 清除 listeners；未获取到应用转写链路的运行日志。程序没有 get-task-allow；本轮没有通过改签、关闭保护或注入方式取得内部队列状态。
+
+### 采样率与资源
+
+捕获通道设置为 48 kHz，语音 processor 配置为 24 kHz，原生 VAD 有重采样入口。必须追踪格式转换，**但数值不同本身不证明是 bug**；本轮没有据此宣布音频被播放成两倍速度。
+
+环境快照显示 24 GB 内存、约 11.9 GB swap 已用。它可能影响推理速度，未通过资源隔离对照确认因果。不能凭累计 swap 计数直接断言“内存不足导致了这次丢失”。
+
+## 实际对照
+
+| 跑次 | 输入与条件 | 观察 | 能排除什么 |
+|---|---|---|---|
+| 上轮 | 26.293 秒英文，已有测试会议 | 正式存储只到 “What is the”；末尾缺失 | 不是单纯 UI 遮挡 |
+| 本轮 A | 新建 19:27 空白会议，不写笔记；重播同一英文文件 | 录音中只看到前缀临时文本；停止后变成“尚无转写内容” | 笔记编辑不是必要条件 |
+| 本轮 B | 同样原始采样，9/18 秒处切段，每段后加 5 秒零值静音，总长 41.293 秒；恢复同一空白测试会议 | 等待后仍只有首段临时前缀；停止后 No transcription yet | 加停顿没有解决本次失败 |
+
+A/B 都通过系统播放进入应用；没有隔离麦克风与系统音频设备，没有声称逐样本确认捕获完整。截图保存于 loss-evidence。新的空白会话停止后没有匹配到该时段的 event_transcript_table 记录，这与 UI 空白一致，但不能替代捕获和模型层的日志。
+
+旧记录只读取了包含 **Blue Lantern** 的合成测试条目：实际保存的正确英文来自 `Remote`，中文时段的错误碎片来自 `Microphone`。因此，上一轮“中文被转成英文”是该双路采集配置的反例，不能证明两个来源使用了完全相同的音频与模型路径。
+
+## 我们应采用的停止协议
+
+```mermaid
+sequenceDiagram
+ participant C as 捕获
+ participant Q as 音频队列
+ participant A as ASR
+ participant R as 结果订阅
+ participant S as 存储
+ C-&gt;&gt;C: 停止接纳新音频
+ C-&gt;&gt;Q: 提交最后缓冲 / EOF
+ Q-&gt;&gt;A: 排空已接收音频
+ A-&gt;&gt;R: final / 已处理时间水位
+ R-&gt;&gt;S: 保存并确认
+ S--&gt;&gt;R: 提交回执
+ R-&gt;&gt;R: 取消订阅与销毁资源
+```
+
+- flush 必须在结果订阅仍然有效时进行；等待最后音频的已处理水位，不只等一个函数返回。
+- 超时保留原音频及临时文本，明确标记“尾段未确认”，不能静默清空或伪装成正式稿。
+- 每个来源独立 sequence、样本数、采样率与时间水位；队列溢出/超时必须可观察，可重放。
+- 生成过的最终区间不可被空结果覆盖；临时字幕被撤下时仍保留可追溯的草稿与替换理由。
+- 持续录音留存与实时字幕解耦：正式稿在有效停止后统一生成。实时链路过载不应损坏录音证据。
+
+项目现有 `LiveAudioFeed` 在格式错误或缓冲溢出时显式失败；`AppleLiveSpeech` 先 finalizeAndFinishThroughEndOfInput 并继续读取 results；`LiveTranscriptionController.finish` 设置尾句整理状态，超时明确标记未确认。复用这些机制比复刻 Foresight 的 stop 顺序更可靠。
+
+## 中文适配：候选扫描与决定
+
+内部已查：`decisions/2026-10-10-ios-transcription-options.md`、MemoryCore/Live 三个实现、现有中文录音回放集成测试。外部补查官方资料：Apple SpeechAnalyzer、sherpa-onnx、SenseVoice、whisper.cpp。没有重新造 ASR 引擎。
+
+| 模块/候选 | 决定 | 限制 |
+|---|---|---|
+| 当前 macOS/iOS 26+ 中文实时草稿 | **复用 AppleLiveSpeech，先用已有格式/生命周期封装** | 运行时检查 zh-CN 支持及模型安装；真实远场、多说话人与旧系统仍需验证 |
+| 跨平台或旧系统 | sherpa-onnx 中文/中英流式候选，后续专项试点 | [官方 Paraformer 文档](https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-paraformer/paraformer-models.html)明确该模型没有 timestamps，不能直接满足精确音频引用；需选其他模型或补对齐 |
+| 录后正式识别 | 复用已有节点流程；SenseVoice 可作为中文候选 | [官方项目](https://github.com/QwenAudio/SenseVoice)支持中文等五种语言；说话人分离需要其他组件，不能把它当成单模型自带能力 |
+| Whisper 本地候选 | 保留备选，不作为本次默认 | [whisper.cpp 官方项目](https://github.com/ggml-org/whisper.cpp)可本地运行；这里未做同样音频的中文质量对比，不能宣称优于已有实现 |
+| Foresight 英文语音模型 | 不直接照搬为中文 ASR | 配置枚举含 EN，当前实测没有得到可用中文；中文 UI 和中文提示词不能补足语音模型语言能力 |
+
+### 已执行的中文识别测试
+
+使用同一中文合成内容，末尾增加“最后请大家下周五检查进展”，以满足已有回放测试的尾句判据；转成 16 kHz、mono Float32 WAV。直接喂给引擎，按真实时间播放，不经过麦克风，不下载新模型。
+
+- 本次测试使用带有未提交改动的工作区，不能由此 SHA 单独重建相同测试环境。
+- 当前 MemoryOS checkout：`a10e150a6da09c0f14a0fda5e91605802daa9308`。
+- 现有 `LiveTranscriptTests.testInstalledChineseModelProducesWordsBeforeInputEnds`：**1 test，0 failures**。
+- 首次文字：**1.307 秒**；输入结束：**28.095 秒**；临时结果 103 次，最终结果 1 次。
+- 保留了蓝灯笼、小林、小王、下周五、12000 元、两个问句、银色枫叶 42 和最后“检查进展”。
+- 原始识别仍把某处“是”写成“式”，数字与标点也有规范化。这不是零错误识别，也不是现场录音验收。
+- 证据：`loss-evidence/apple-chinese-replay.log`、中文输入 TXT/AIFF/16k WAV。它证明现有中文引擎与停止协议在该合成回放上能完成全段，不能单独证明 Foresight 的捕获层是根因。
+
+### 问题检测和增强也必须中文化
+
+1. 替换空格词计数：中文连续句子可能被当成一个词；“末尾 5 词”和“最近 200 词”不能原样使用。采用稳定文本前缀、句末/时间边界与语言适配的 tokenizer；窗口参数按中文用例标定。
+2. 问题候选先保证召回：什么时候、谁负责、是否、怎么处理、预算多少，以及省略式追问。疑问词可作触发线索，不能当作正确意图的充分判据；使用支持中文的检测模型/指令模型并测漏检、误检与延迟。
+3. 替换相似度规则：空格 wordSet 的 Jaccard 对中文无效；使用中文分词或字符 n-gram，原来的 0.7/0.8/0.9 阈值重新标定，不直接照抄。
+4. 增强输出保持中文且逐条引用来源；保护人民币/美元、万元/元、姓名及原文模态。把“争取下周五”改成“决定下周五”应判为失败。
+5. 中文检索模型需要在专有名词、同音字、中英混说上验收；无片段时保留原笔记并显示未确认，不能用流畅中文填空。
+
+## 后续验收门槛
+
+固定同一原始音频做正常、短停顿、无停顿、处理变慢、超时、停止/恢复对照；按来源核对接收样本数、提交样本数与最终覆盖区间。末尾标记、数字、人名和否定/承诺语气必须逐项检查。长会议允许实时草稿失败，但原音频不得丢失，正式稿不得静默缺段。
+
+当前已定位到可复查的收尾缺陷，并取得中文替代路线的真实回放证据。**长段未及时生成 final 的上游原因仍未完全闭合**；需运行时队列/引擎事件才能确认是否超时、资源等待或捕获缺口。这一边界已经写明，避免把推测变成后续开发依据。
+</pre>
+</html>

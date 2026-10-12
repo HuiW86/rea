@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-11",
+  "method": "Direct, real-time-paced synthetic Chinese audio replay into existing Apple speech integration test; not microphone capture.",
+  "checkout": "a10e150a6da09c0f14a0fda5e91605802daa9308",
+  "workspace_dirty": true,
+  "test": "LiveTranscriptTests.testInstalledChineseModelProducesWordsBeforeInputEnds",
+  "passed": 1,
+  "failed": 0,
+  "first_text_seconds": 1.307,
+  "input_end_seconds": 28.095,
+  "partial_results": 103,
+  "final_results": 1,
+  "limitations": [
+    "Synthetic replay, not far-field or speaker-diarization acceptance.",
+    "Some homophone errors remain.",
+    "Private project implementation and raw build logs not distributed; these metrics are an observation summary, not independently reproducible from this fork."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-11",
+  "scope": "Public documentation export only. No new Foresight recordings or model downloads.",
+  "development_toolchain": {
+    "node": "24.18.0",
+    "npm": "11.16.0"
+  },
+  "checks": {
+    "npm run check": "passed",
+    "npm run docs:check": "passed",
+    "npm run docs:build": "passed",
+    "walkthrough_dom_test_doubles": {
+      "checks": 28,
+      "result": "passed",
+      "scope": "Script/control logic; not browser rendering or layout.",
+      "startup_hash_variants": 8
+    },
+    "inline_script_syntax": "passed",
+    "relative_walkthrough_links": "passed",
+    "json_parse": "passed",
+    "application_key_and_local_home_path_scan": "passed",
+    "image_mime_matches_payload": "passed"
+  },
+  "unverified": [
+    "Browser rendering/layout",
+    "New real-provider or Foresight runtime experiments",
+    "Independent reproduction of private Chinese integration"
+  ],
+  "build_note": "Changed one existing WABT provenance link from an out-of-docs relative path to its GitHub source so VitePress dead-link checking passes.",
+  "review_fixes": [
+    "Reject fractional/invalid stage anchors through one shared parser; #step-1.5 previously caused startup TypeError.",
+    "Declare embedded JPEG payloads as image/jpeg.",
+    "Include original MIT license and provenance for DAE-derived experimental profile."
+  ]
+}
